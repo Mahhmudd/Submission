@@ -18,7 +18,7 @@ for i in day_df.columns:
     day_df.drop(labels=i, axis=1, inplace=True)
 
 # Mengubah angka menjadi keterangan
-day_df['month'] = day_df['month'].map({
+day_df['mnth'] = day_df['month'].map({
     1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'May', 6: 'Jun',
     7: 'Jul', 8: 'Aug', 9: 'Sep', 10: 'Oct', 11: 'Nov', 12: 'Dec'
 })
