@@ -195,13 +195,13 @@ sns.barplot(
 )
 
 for index, row in season_rent_df.iterrows():
-    ax.text(index, row['registered'], str(row['registered']), ha='center', va='bottom', fontsize=12)
-    ax.text(index, row['casual'], str(row['casual']), ha='center', va='bottom', fontsize=12)
+    ax.text(index, row['registered'], str(row['registered']), ha='center', va='bottom', fontsize=16)
+    ax.text(index, row['casual'], str(row['casual']), ha='center', va='bottom', fontsize=16)
 
 ax.set_xlabel(None)
 ax.set_ylabel(None)
-ax.tick_params(axis='x', labelsize=20, rotation=0)
-ax.tick_params(axis='y', labelsize=15)
+ax.tick_params(axis='x', labelsize=16, rotation=0)
+ax.tick_params(axis='y', labelsize=16)
 ax.legend()
 st.pyplot(fig)
 
