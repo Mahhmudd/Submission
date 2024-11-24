@@ -251,12 +251,12 @@ sns.barplot(
     palette='magma')
 
 for index, row in enumerate(workingday_rent_df['count']):
-    ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
+    ax[0].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
-axes.set_title('Jumlah Penyewa on Working Day')
-axes.set_ylabel(None)
-axes.tick_params(axis='x', labelsize=16)
-axes.tick_params(axis='y', labelsize=16)
+axes[0].set_title('Jumlah Penyewa on Working Day')
+axes[0].set_ylabel(None)
+axes[0].tick_params(axis='x', labelsize=16)
+axes[0].tick_params(axis='y', labelsize=16)
 st.pyplot(fig)
 
 # Berdasarkan holiday
@@ -270,12 +270,12 @@ sns.barplot(
   palette=colors2)
 
 for index, row in enumerate(holiday_rent_df['count']):
-    ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
+    ax[1].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
-axes.set_title('Jumlah Penyewa on Holiday')
-axes.set_ylabel(None)
-axes.tick_params(axis='x', labelsize=16)
-axes.tick_params(axis='y', labelsize=16)
+axes[1].set_title('Jumlah Penyewa on Holiday')
+axes[1].set_ylabel(None)
+axes[1].tick_params(axis='x', labelsize=16)
+axes[1].tick_params(axis='y', labelsize=16)
 st.pyplot(fig)
 
 # Berdasarkan weekday
@@ -288,12 +288,12 @@ sns.barplot(
   palette=colors3)
 
 for index, row in enumerate(weekday_rent_df['count']):
-    ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
+    ax[2].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
-axes.set_title('Jumlah Penyewa on Weekday')
-axes.set_ylabel(None)
-axes.tick_params(axis='x', labelsize=16)
-axes.tick_params(axis='y', labelsize=16)
+axes[2].set_title('Jumlah Penyewa on Weekday')
+axes[2].set_ylabel(None)
+axes[2].tick_params(axis='x', labelsize=16)
+axes[2].tick_params(axis='y', labelsize=16)
 
 plt.tight_layout()
 st.pyplot(fig)
