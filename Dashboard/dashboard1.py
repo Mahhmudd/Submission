@@ -112,16 +112,6 @@ def create_weather_rent_df(df):
     return weather_rent_df
     
 
-# Menyiapkan dataframe
-daily_rent_df = create_daily_rent_df(main_df)
-daily_casual_rent_df = create_daily_casual_rent_df(main_df)
-daily_registered_rent_df = create_daily_registered_rent_df(main_df)
-season_rent_df = create_season_rent_df(main_df)
-monthly_rent_df = create_monthly_rent_df(main_df)
-weekday_rent_df = create_weekday_rent_df(main_df)
-workingday_rent_df = create_workingday_rent_df(main_df)
-holiday_rent_df = create_holiday_rent_df(main_df)
-weather_rent_df = create_weather_rent_df(main_df)
 
 
 # Membuat Dashboard
@@ -143,6 +133,17 @@ max_date = pd.to_datetime(day_df['dateday']).dt.date.max()
 
 main_df = day_df[(day_df['dateday'] >= str(start_date)) & 
                 (day_df['dateday'] <= str(end_date))]
+
+# Menyiapkan dataframe
+daily_rent_df = create_daily_rent_df(main_df)
+daily_casual_rent_df = create_daily_casual_rent_df(main_df)
+daily_registered_rent_df = create_daily_registered_rent_df(main_df)
+season_rent_df = create_season_rent_df(main_df)
+monthly_rent_df = create_monthly_rent_df(main_df)
+weekday_rent_df = create_weekday_rent_df(main_df)
+workingday_rent_df = create_workingday_rent_df(main_df)
+holiday_rent_df = create_holiday_rent_df(main_df)
+weather_rent_df = create_weather_rent_df(main_df)
 
 # Membuat jumlah penyewaan sepeda harian
 st.subheader('Daily Rentals')
