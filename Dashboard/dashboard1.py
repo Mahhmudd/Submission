@@ -127,7 +127,7 @@ start_date, end_date = st.date_input(
 main_df = day_df[(day_df['dateday'] >= str(start_date)) & 
                 (day_df['dateday'] <= str(end_date))]
 
-# Menyiapkan dataframe
+# Menyiapkan database
 daily_rent_df = create_daily_rent_df(main_df)
 daily_casual_rent_df = create_daily_casual_rent_df(main_df)
 daily_registered_rent_df = create_daily_registered_rent_df(main_df)
@@ -141,7 +141,7 @@ weather_rent_df = create_weather_rent_df(main_df)
 # Membuat Dashboard
 
 # Membuat judul
-st.title('Bike Sharing Dashboard 🚲')
+st.title('Bike Sharing Dashboard')
 
 # Membuat jumlah penyewaan sepeda harian
 st.subheader('Daily Rentals')
@@ -159,28 +159,28 @@ with col3:
     daily_rent_total = daily_rent_df['count'].sum()
     st.metric('Total User', value= daily_rent_total)
 
-# Membuat jumlah penyewaan sepeda bulanan
+# jumlah penyewaan sepeda bulanan
 st.subheader('Monthly Rentals')
 fig, ax = plt.subplots(figsize=(24, 8))
 ax.plot(
-    monthly_rent_df.index,
     monthly_rent_df['count'],
+    monthly_rent_df.index,
     marker='o', 
     linewidth=2,
     color='tab:orange'
 )
 
 for index, row in enumerate(monthly_rent_df['count']):
-    ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
+    ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=10)
 
-ax.tick_params(axis='x', labelsize=25, rotation=45)
+ax.tick_params(axis='x', labelsize=20, rotation=40)
 ax.tick_params(axis='y', labelsize=20)
 st.pyplot(fig)
 
-# Membuat jumlah penyewaan berdasarkan season/musim
+# Membuat jumlah penyewaan berdasarkan musiman
 st.subheader('Seasonly Rentals')
 
-fig, ax = plt.subplots(figsize=(16, 8))
+fig, ax = plt.subplots(figsize=(14, 8))
 
 sns.barplot(
     x='season',
@@ -214,7 +214,7 @@ st.pyplot(fig)
 # Membuah jumlah penyewaan berdasarkan kondisi cuaca
 st.subheader('Weatherly Rentals')
 
-fig, ax = plt.subplots(figsize=(16, 8))
+fig, ax = plt.subplots(figsize=(14, 8))
 
 colors=["tab:orange", "tab:red", "tab:green"]
 
