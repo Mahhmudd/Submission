@@ -167,8 +167,8 @@ ax.plot(
 for index, row in enumerate(monthly_rent_df['count']):
     ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=10)
 
-ax.set_xlabel('Rent', labelsize=10)
-ax.set_ylabel('Month', labelsize=10)
+ax.set_xlabel('Rent', fontsize=10)
+ax.set_ylabel('Month', fontsize=10)
 ax.tick_params(axis='x', labelsize=20, rotation=40)
 ax.tick_params(axis='y', labelsize=20)
 st.pyplot(fig)
