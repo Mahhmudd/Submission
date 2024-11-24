@@ -231,7 +231,7 @@ ax.tick_params(axis='y', labelsize=16)
 st.pyplot(fig)
 
 # Membuat jumlah penyewaan berdasarkan weekday, working dan holiday
-st.subheader('Weekday, Workingday, and Holiday Rentals')
+st.header('Weekday, Workingday, and Holiday Rentals')
 
 fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(15,10))
 
@@ -240,6 +240,8 @@ colors2=["tab:orange", "tab:red"]
 colors3=["tab:blue", "tab:orange", "tab:green", "tab:red", "tab:purple", "tab:brown", "tab:pink"]
 
 # Berdasarkan workingday
+st.subheader('Weekday')
+
 f, ax = plt.subplots(figsize=(7,5))
 sns.despine(f)
 sns.barplot(
@@ -260,6 +262,9 @@ axes[0].tick_params(axis='y', labelsize=16)
 st.pyplot(fig)
 
 # Berdasarkan holiday
+st.subheader('holiday')
+f, ax = plt.subplots(figsize=(7,5))
+sns.despine(f)
 sns.barplot(
   x='holiday',
   y='count',
@@ -278,6 +283,8 @@ axes[1].tick_params(axis='y', labelsize=16)
 st.pyplot(fig)
 
 # Berdasarkan weekday
+st.subheader('Weekday')
+f, ax = plt.subplots(figsize=(7,5))
 sns.barplot(
   x='weekday',
   y='count',
