@@ -240,8 +240,6 @@ colors2=["tab:orange", "tab:red"]
 colors3=["tab:blue", "tab:orange", "tab:green", "tab:red", "tab:purple", "tab:brown", "tab:pink"]
 
 # Berdasarkan workingday
-st.subheader('Weekday')
-
 f, ax = plt.subplots(figsize=(7,5))
 sns.despine(f)
 sns.barplot(
@@ -260,7 +258,6 @@ axes[0].tick_params(axis='x', labelsize=16)
 axes[0].tick_params(axis='y', labelsize=16)
 
 # Berdasarkan holiday
-st.subheader('holiday')
 f, ax = plt.subplots(figsize=(7,5))
 sns.despine(f)
 sns.barplot(
@@ -279,7 +276,6 @@ axes[1].tick_params(axis='x', labelsize=16)
 axes[1].tick_params(axis='y', labelsize=16)
 
 # Berdasarkan weekday
-st.subheader('Weekday')
 f, ax = plt.subplots(figsize=(7,5))
 sns.barplot(
   x='weekday',
