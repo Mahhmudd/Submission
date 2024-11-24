@@ -248,11 +248,10 @@ sns.barplot(
     x='workingday',
     y='count',
     data=workingday_rent_df,
-    palette='magma',
-    ax=axes[0])
+    palette='magma')
 
 for index, row in enumerate(workingday_rent_df['count']):
-    axes[0].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
+    axes.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
 axes[0].set_title('Jumlah Penyewa on Working Day')
 axes[0].set_ylabel(None)
@@ -268,11 +267,10 @@ sns.barplot(
   x='holiday',
   y='count',
   data=holiday_rent_df,
-  palette=colors2,
-  ax=axes[1])
+  palette=colors2)
 
 for index, row in enumerate(holiday_rent_df['count']):
-    axes[1].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
+    axes.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
 axes[1].set_title('Jumlah Penyewa on Holiday')
 axes[1].set_ylabel(None)
@@ -287,11 +285,10 @@ sns.barplot(
   x='weekday',
   y='count',
   data=weekday_rent_df,
-  palette=colors3,
-  ax=axes[2])
+  palette=colors3)
 
 for index, row in enumerate(weekday_rent_df['count']):
-    axes[2].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
+    axes.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
 axes[2].set_title('Jumlah Penyewa on Weekday')
 axes[2].set_ylabel(None)
