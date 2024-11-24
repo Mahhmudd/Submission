@@ -233,14 +233,14 @@ st.pyplot(fig)
 # Jumlah penyewaan berdasarkan weekday, working dan holiday
 st.header('Weekday, Workingday, and Holiday Rentals')
 
-fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(20,10))
+fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(15,22))
 
 colors1=["tab:orange", "tab:red"]
 colors2=["tab:orange", "tab:red"]
 colors3=["tab:blue", "tab:orange", "tab:green", "tab:red", "tab:purple", "tab:brown", "tab:pink"]
 
 # Berdasarkan workingday
-f, ax = plt.subplots(figsize=(10,8))
+f, ax = plt.subplots(figsize=(8,12))
 sns.despine(f)
 sns.barplot(
     x='workingday',
@@ -258,7 +258,7 @@ axes[0].tick_params(axis='x', labelsize=16)
 axes[0].tick_params(axis='y', labelsize=16)
 
 # Berdasarkan holiday
-f, ax = plt.subplots(figsize=(10,8))
+f, ax = plt.subplots(figsize=(8,12))
 sns.despine(f)
 sns.barplot(
   x='holiday',
@@ -276,7 +276,7 @@ axes[1].tick_params(axis='x', labelsize=16)
 axes[1].tick_params(axis='y', labelsize=16)
 
 # Berdasarkan weekday
-f, ax = plt.subplots(figsize=(10,8))
+f, ax = plt.subplots(figsize=(8,12))
 sns.barplot(
   x='weekday',
   y='count',
