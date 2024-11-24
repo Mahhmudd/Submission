@@ -165,15 +165,15 @@ ax.plot(
 )
 
 for index, row in enumerate(monthly_rent_df['count']):
-    ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=10)
+    ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=16)
 
-ax.set_xlabel('Rent', fontsize=10)
-ax.set_ylabel('Month', fontsize=10)
-ax.tick_params(axis='x', labelsize=20, rotation=40)
+ax.set_xlabel('Month', fontsize=20)
+ax.set_ylabel('Rent', fontsize=20)
+ax.tick_params(axis='x', labelsize=20, rotation=45)
 ax.tick_params(axis='y', labelsize=20)
 st.pyplot(fig)
 
-# Membuat jumlah penyewaan berdasarkan musiman
+#  jumlah penyewaan berdasarkan musiman
 st.subheader('Seasonly Rentals')
 
 fig, ax = plt.subplots(figsize=(14, 8))
@@ -200,14 +200,14 @@ for index, row in season_rent_df.iterrows():
     ax.text(index, row['registered'], str(row['registered']), ha='center', va='bottom', fontsize=16)
     ax.text(index, row['casual'], str(row['casual']), ha='center', va='bottom', fontsize=16)
 
-ax.set_xlabel('Rent')
-ax.set_ylabel('Season')
+ax.set_xlabel('Season', fontsize=20)
+ax.set_ylabel('Rent', fontsize=20)
 ax.tick_params(axis='x', labelsize=16, rotation=0)
 ax.tick_params(axis='y', labelsize=16)
 ax.legend()
 st.pyplot(fig)
 
-# Membuah jumlah penyewaan berdasarkan kondisi cuaca
+# Penyewaan berdasarkan kondisi cuaca
 st.subheader('Weatherly Rentals')
 
 fig, ax = plt.subplots(figsize=(14, 8))
@@ -224,10 +224,10 @@ sns.barplot(
 for index, row in enumerate(weather_rent_df['count']):
     ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
-ax.set_xlabel(None)
-ax.set_ylabel(None)
-ax.tick_params(axis='x', labelsize=20)
-ax.tick_params(axis='y', labelsize=15)
+ax.set_xlabel('weather', fontsize=20)
+ax.set_ylabel('rent', fontsize=20)
+ax.tick_params(axis='x', labelsize=16)
+ax.tick_params(axis='y', labelsize=16)
 st.pyplot(fig)
 
 # Membuat jumlah penyewaan berdasarkan weekday, working dan holiday
@@ -252,10 +252,13 @@ sns.barplot(
 for index, row in enumerate(workingday_rent_df['count']):
     axes[0].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
-axes[0].set_title('Number of Rents based on Working Day')
+axes[0].set_title('Jumlah Penyewa on Working Day')
 axes[0].set_ylabel(None)
-axes[0].tick_params(axis='x', labelsize=15)
-axes[0].tick_params(axis='y', labelsize=10)
+axes[0].tick_params(axis='x', labelsize=16)
+axes[0].tick_params(axis='y', labelsize=16)
+
+plt.tight_layout()
+st.pyplot(fig)
 
 # Berdasarkan holiday
 sns.barplot(
@@ -268,10 +271,13 @@ sns.barplot(
 for index, row in enumerate(holiday_rent_df['count']):
     axes[1].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
-axes[1].set_title('Number of Rents based on Holiday')
+axes[1].set_title('Jumlah Penyewa on Holiday')
 axes[1].set_ylabel(None)
-axes[1].tick_params(axis='x', labelsize=15)
-axes[1].tick_params(axis='y', labelsize=10)
+axes[1].tick_params(axis='x', labelsize=16)
+axes[1].tick_params(axis='y', labelsize=16)
+
+plt.tight_layout()
+st.pyplot(fig)
 
 # Berdasarkan weekday
 sns.barplot(
@@ -284,10 +290,10 @@ sns.barplot(
 for index, row in enumerate(weekday_rent_df['count']):
     axes[2].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
-axes[2].set_title('Number of Rents based on Weekday')
+axes[2].set_title('Jumlah Penyewa on Weekday')
 axes[2].set_ylabel(None)
-axes[2].tick_params(axis='x', labelsize=15)
-axes[2].tick_params(axis='y', labelsize=10)
+axes[2].tick_params(axis='x', labelsize=16)
+axes[2].tick_params(axis='y', labelsize=16)
 
 plt.tight_layout()
 st.pyplot(fig)
