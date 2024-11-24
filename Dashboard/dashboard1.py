@@ -233,7 +233,7 @@ st.pyplot(fig)
 # Jumlah penyewaan berdasarkan weekday, working dan holiday
 st.header('Weekday, Workingday, and Holiday Rentals')
 
-fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(15,10))
+fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(20,10))
 
 colors1=["tab:orange", "tab:red"]
 colors2=["tab:orange", "tab:red"]
