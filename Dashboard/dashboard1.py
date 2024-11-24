@@ -138,7 +138,7 @@ weather_rent_df = create_weather_rent_df(main_df)
 st.title('Bike Sharing Dashboard')
 
 # Membuat jumlah penyewaan sepeda harian
-st.subheader('Daily Rentals')
+st.header('Daily Rentals')
 col1, col2, col3 = st.columns(3)
 
 with col1:
@@ -154,7 +154,7 @@ with col3:
     st.metric('Total User', value= daily_rent_total)
 
 # jumlah penyewaan sepeda bulanan
-st.subheader('Monthly Rentals')
+st.header('Monthly Rentals')
 fig, ax = plt.subplots(figsize=(24, 8))
 ax.plot(
     monthly_rent_df.index,
@@ -174,7 +174,7 @@ ax.tick_params(axis='y', labelsize=20)
 st.pyplot(fig)
 
 #  jumlah penyewaan berdasarkan musiman
-st.subheader('Seasonly Rentals')
+st.header('Seasonly Rentals')
 
 fig, ax = plt.subplots(figsize=(14, 8))
 
@@ -208,7 +208,7 @@ ax.legend()
 st.pyplot(fig)
 
 # Penyewaan berdasarkan kondisi cuaca
-st.subheader('Weatherly Rentals')
+st.header('Weatherly Rentals')
 
 fig, ax = plt.subplots(figsize=(14, 8))
 
@@ -259,8 +259,6 @@ axes[0].set_ylabel(None)
 axes[0].tick_params(axis='x', labelsize=16)
 axes[0].tick_params(axis='y', labelsize=16)
 
-st.pyplot(fig)
-
 # Berdasarkan holiday
 st.subheader('holiday')
 f, ax = plt.subplots(figsize=(7,5))
@@ -279,8 +277,6 @@ axes[1].set_title('Jumlah Penyewa on Holiday')
 axes[1].set_ylabel(None)
 axes[1].tick_params(axis='x', labelsize=16)
 axes[1].tick_params(axis='y', labelsize=16)
-
-st.pyplot(fig)
 
 # Berdasarkan weekday
 st.subheader('Weekday')
