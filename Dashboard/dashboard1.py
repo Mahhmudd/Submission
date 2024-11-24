@@ -6,7 +6,7 @@ import streamlit as st
 # mengatur style
 sns.set(style='whitegrid')
 
-# Menyiapkan data day_df
+# Menyiapkan database day_df
 day_df = pd.read_csv("Data/bike_day.csv")
 day_df.head()
 
@@ -17,7 +17,7 @@ for i in day_df.columns:
   if i in drop_col:
     day_df.drop(labels=i, axis=1, inplace=True)
 
-# Menganti judul kolom
+# ganti judul kolom
 day_df.rename(columns={
     'dteday': 'dateday',
     'yr': 'year',
@@ -110,12 +110,7 @@ def create_weather_rent_df(df):
         'count': 'sum'
     })
     return weather_rent_df
-
-
-# Membuat filter
-min_date = pd.to_datetime(day_df['dateday']).dt.date.min()
-max_date = pd.to_datetime(day_df['dateday']).dt.date.max()
-     
+    
 # Mengambil start_date & end_date dari date_input
 start_date, end_date = st.date_input(
     label='Rentang Waktu',
@@ -142,8 +137,12 @@ weather_rent_df = create_weather_rent_df(main_df)
 # Membuat Dashboard
 
 # Membuat judul
-st.header('Bike Sharing Dashboard 🚲')
+st.title('Bike Sharing Dashboard 🚲')
 
+# Membuat filter
+min_date = pd.to_datetime(day_df['dateday']).dt.date.min()
+max_date = pd.to_datetime(day_df['dateday']).dt.date.max()
+ 
 # Membuat jumlah penyewaan sepeda harian
 st.subheader('Daily Rentals')
 col1, col2, col3 = st.columns(3)
