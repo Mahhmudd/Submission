@@ -198,8 +198,8 @@ for index, row in season_rent_df.iterrows():
     ax.text(index, row['registered'], str(row['registered']), ha='center', va='bottom', fontsize=16)
     ax.text(index, row['casual'], str(row['casual']), ha='center', va='bottom', fontsize=16)
 
-ax.set_xlabel(None)
-ax.set_ylabel(None)
+ax.set_xlabel('Rent')
+ax.set_ylabel('Season')
 ax.tick_params(axis='x', labelsize=16, rotation=0)
 ax.tick_params(axis='y', labelsize=16)
 ax.legend()
