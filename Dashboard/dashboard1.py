@@ -111,8 +111,6 @@ def create_weather_rent_df(df):
     })
     return weather_rent_df
     
-main_df = day_df[(day_df['dateday'] >= str(start_date)) & 
-                (day_df['dateday'] <= str(end_date))]
 
 # Menyiapkan dataframe
 daily_rent_df = create_daily_rent_df(main_df)
@@ -142,7 +140,10 @@ start_date, end_date = st.date_input(
 # Membuat filter
 min_date = pd.to_datetime(day_df['dateday']).dt.date.min()
 max_date = pd.to_datetime(day_df['dateday']).dt.date.max()
- 
+
+main_df = day_df[(day_df['dateday'] >= str(start_date)) & 
+                (day_df['dateday'] <= str(end_date))]
+
 # Membuat jumlah penyewaan sepeda harian
 st.subheader('Daily Rentals')
 col1, col2, col3 = st.columns(3)
