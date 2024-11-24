@@ -191,7 +191,7 @@ sns.barplot(
     y='registered',
     data=season_rent_df,
     label='Registered',
-    color='tab:blue',
+    color='tab:red',
     ax=ax
 )
 
@@ -220,7 +220,7 @@ st.subheader('Weatherly Rentals')
 
 fig, ax = plt.subplots(figsize=(16, 8))
 
-colors=["tab:blue", "tab:orange", "tab:green"]
+colors=["tab:blue", "tab:red", "tab:green"]
 
 sns.barplot(
     x=weather_rent_df.index,
@@ -243,9 +243,9 @@ st.subheader('Weekday, Workingday, and Holiday Rentals')
 
 fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(15,10))
 
-colors1=["tab:blue", "tab:orange"]
-colors2=["tab:blue", "tab:orange"]
-colors3=["tab:blue", "tab:orange", "tab:green", "tab:red", "tab:purple", "tab:brown", "tab:pink"]
+colors1=["tab:blue", "tab:red"]
+colors2=["tab:blue", "tab:red"]
+colors3=["tab:green", "tab:blue", "tab:yellow", "tab:red", "tab:purple", "tab:brown", "tab:orange"]
 
 # Berdasarkan workingday
 sns.barplot(
