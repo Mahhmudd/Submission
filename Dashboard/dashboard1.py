@@ -257,7 +257,6 @@ axes[0].set_ylabel(None)
 axes[0].tick_params(axis='x', labelsize=16)
 axes[0].tick_params(axis='y', labelsize=16)
 
-plt.tight_layout()
 st.pyplot(fig)
 
 # Berdasarkan holiday
@@ -276,7 +275,6 @@ axes[1].set_ylabel(None)
 axes[1].tick_params(axis='x', labelsize=16)
 axes[1].tick_params(axis='y', labelsize=16)
 
-plt.tight_layout()
 st.pyplot(fig)
 
 # Berdasarkan weekday
