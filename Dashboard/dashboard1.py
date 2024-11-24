@@ -245,7 +245,7 @@ colors2=["tab:orange", "tab:red"]
 colors3=["tab:blue", "tab:orange", "tab:green", "tab:red", "tab:purple", "tab:brown", "tab:pink"]
 
 # Berdasarkan workingday
-f, ax = plt.subplots(figsize=(15,5))
+f, ax = plt.subplots(figsize=(7,5))
 sns.despine(f)
 sns.barplot(
     x='workingday',
