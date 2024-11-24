@@ -248,7 +248,7 @@ sns.barplot(
     x='workingday',
     y='count',
     data=workingday_rent_df,
-    palette='colors1')
+    palette='magma')
 
 for index, row in enumerate(workingday_rent_df['count']):
     axes.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
