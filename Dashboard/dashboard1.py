@@ -44,34 +44,28 @@ day_df['weather_cond'] = day_df['weather_cond'].map({
     4: 'Severe Weather'
 })
 
-
-# Menyiapkan daily_rent_df
 def create_daily_rent_df(df):
     daily_rent_df = df.groupby(by='dateday').agg({
         'count': 'sum'
     }).reset_index()
     return daily_rent_df
 
-# Menyiapkan daily_casual_rent_df
 def create_daily_casual_rent_df(df):
     daily_casual_rent_df = df.groupby(by='dateday').agg({
         'casual': 'sum'
     }).reset_index()
     return daily_casual_rent_df
 
-# Menyiapkan daily_registered_rent_df
 def create_daily_registered_rent_df(df):
     daily_registered_rent_df = df.groupby(by='dateday').agg({
         'registered': 'sum'
     }).reset_index()
     return daily_registered_rent_df
     
-# Menyiapkan season_rent_df
 def create_season_rent_df(df):
     season_rent_df = df.groupby(by='season')[['registered', 'casual']].sum().reset_index()
     return season_rent_df
 
-# Menyiapkan monthly_rent_df
 def create_monthly_rent_df(df):
     monthly_rent_df = df.groupby(by='month').agg({
         'count': 'sum'
@@ -163,8 +157,8 @@ with col3:
 st.subheader('Monthly Rentals')
 fig, ax = plt.subplots(figsize=(24, 8))
 ax.plot(
-    monthly_rent_df['count'],
     monthly_rent_df.index,
+    monthly_rent_df['count'],
     marker='o', 
     linewidth=2,
     color='tab:orange'
