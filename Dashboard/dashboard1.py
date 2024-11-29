@@ -140,8 +140,9 @@ weather_rent_df = create_weather_rent_df(main_df)
 st.title('BIKE SHARING DASHBOARD')
 
 # Membuat jumlah penyewaan sepeda harian
-st.header('1. Daily Rentals')
 st.markdown("---")
+st.header('1. Daily Rentals')
+
 col1, col2, col3 = st.columns(3)
 
 with col1:
@@ -157,8 +158,9 @@ with col3:
     st.metric('Total User', value= daily_rent_total)
 
 # jumlah penyewaan sepeda bulanan
-st.header('2. Monthly Rentals')
 st.markdown("---")
+st.header('2. Monthly Rentals')
+
 fig, ax = plt.subplots(figsize=(24, 8))
 ax.plot(
     monthly_rent_df.index,
@@ -179,8 +181,8 @@ st.pyplot(fig)
 st.divider()
 
 #  jumlah penyewaan berdasarkan musiman
-st.header('3. Seasonly Rentals')
 st.markdown("---")
+st.header('3. Seasonly Rentals')
 
 fig, ax = plt.subplots(figsize=(14, 8))
 
