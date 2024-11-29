@@ -121,6 +121,8 @@ start_date, end_date = st.date_input(
 main_df = day_df[(day_df['dateday'] >= str(start_date)) & 
                 (day_df['dateday'] <= str(end_date))]
 
+st.divider()
+
 # Menyiapkan database
 daily_rent_df = create_daily_rent_df(main_df)
 daily_casual_rent_df = create_daily_casual_rent_df(main_df)
@@ -136,7 +138,6 @@ weather_rent_df = create_weather_rent_df(main_df)
 
 # Membuat judul
 st.title('BIKE SHARING DASHBOARD')
-st.divider()
 
 # Membuat jumlah penyewaan sepeda harian
 st.header('1. Daily Rentals')
