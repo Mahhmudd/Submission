@@ -276,7 +276,7 @@ axes[1].tick_params(axis='x', labelsize=16)
 axes[1].tick_params(axis='y', labelsize=16)
 
 # Berdasarkan weekday
-st.text_area("Weekday")
+st.markdown("---")
 f, ax = plt.subplots(figsize=(8,12))
 sns.barplot(
   x='weekday',
