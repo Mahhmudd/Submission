@@ -10,12 +10,12 @@ sns.set(style='whitegrid')
 day_df = pd.read_csv("Data/bike_day.csv")
 day_df.head()
 
+# Menghapus kolom yang tidak digunakan
+drop_col = ['windspeed']
+
 for i in day_df.columns:
   if i in drop_col:
     day_df.drop(labels=i, axis=1, inplace=True)
-
-# Menghapus kolom yang tidak digunakan
-drop_col = ['windspeed']
 
 # ganti judul kolom
 day_df.rename(columns={
@@ -25,8 +25,6 @@ day_df.rename(columns={
     'weathersit': 'weather_cond',
     'cnt': 'count'
 }, inplace=True)
-
-
 
 # Mengubah kolom dan baris 
 day_df['month'] = day_df['month'].map({
