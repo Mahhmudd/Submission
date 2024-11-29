@@ -176,6 +176,7 @@ ax.set_ylabel('Rent', fontsize=20)
 ax.tick_params(axis='x', labelsize=16, rotation=45)
 ax.tick_params(axis='y', labelsize=16)
 st.pyplot(fig)
+st.divider()
 
 #  jumlah penyewaan berdasarkan musiman
 st.header('3. Seasonly Rentals')
@@ -211,6 +212,7 @@ ax.tick_params(axis='x', labelsize=16, rotation=0)
 ax.tick_params(axis='y', labelsize=16)
 ax.legend()
 st.pyplot(fig)
+st.divider()
 
 # Penyewaan berdasarkan kondisi cuaca
 st.header('4. Weatherly Rentals')
@@ -235,6 +237,7 @@ ax.set_ylabel('Rent', fontsize=20)
 ax.tick_params(axis='x', labelsize=16)
 ax.tick_params(axis='y', labelsize=16)
 st.pyplot(fig)
+st.divider()
 
 # Jumlah penyewaan berdasarkan weekday, working dan holiday
 st.header('5. Weekday, Workingday, and Holiday Rentals')
