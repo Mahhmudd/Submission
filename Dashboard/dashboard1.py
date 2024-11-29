@@ -248,7 +248,7 @@ colors3=["tab:red", "tab:pink", "tab:blue", "tab:green", "tab:purple", "tab:brow
 f, ax = plt.subplots(figsize=(8,12))
 sns.despine(f)
 sns.barplot(
-    x='Workingday',
+    x='workingday',
     y='count',
     data=workingday_rent_df,
     palette='magma',
@@ -266,7 +266,7 @@ axes[0].tick_params(axis='y', labelsize=16)
 f, ax = plt.subplots(figsize=(8,12))
 sns.despine(f)
 sns.barplot(
-  x='Holiday',
+  x='holiday',
   y='count',
   data=holiday_rent_df,
   palette=colors2,
@@ -283,7 +283,7 @@ axes[1].tick_params(axis='y', labelsize=16)
 # Berdasarkan weekday
 f, ax = plt.subplots(figsize=(8,12))
 sns.barplot(
-  x='Weekday',
+  x='weekday',
   y='count',
   data=weekday_rent_df,
   palette=colors3,
