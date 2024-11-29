@@ -252,6 +252,8 @@ sns.barplot(
 for index, row in enumerate(workingday_rent_df['count']):
     axes[0].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
+    st.markdown("-Workingday-")
+
 axes[0].set_title('Jumlah Penyewa pada Working Day')
 axes[0].set_ylabel(None)
 axes[0].tick_params(axis='x', labelsize=16)
@@ -270,13 +272,14 @@ sns.barplot(
 for index, row in enumerate(holiday_rent_df['count']):
     axes[1].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
+st.markdown("-Holiday-")
+
 axes[1].set_title('Jumlah Penyewa pada Holiday')
 axes[1].set_ylabel(None)
 axes[1].tick_params(axis='x', labelsize=16)
 axes[1].tick_params(axis='y', labelsize=16)
 
 # Berdasarkan weekday
-st.markdown("---")
 f, ax = plt.subplots(figsize=(8,12))
 sns.barplot(
   x='weekday',
@@ -288,6 +291,7 @@ sns.barplot(
 for index, row in enumerate(weekday_rent_df['count']):
     axes[2].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
+st.markdown("-Weekday-")
 axes[2].set_title('Jumlah Penyewa pada Weekday')
 axes[2].set_xlabel('Weekday', fontsize=20)
 axes[2].set_ylabel('Rent', fontsize=20)
