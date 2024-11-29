@@ -10,9 +10,6 @@ sns.set(style='whitegrid')
 day_df = pd.read_csv("Data/bike_day.csv")
 day_df.head()
 
-# Menghapus kolom yang tidak perlu
-drop_col = ['windspeed']
-
 for i in day_df.columns:
   if i in drop_col:
     day_df.drop(labels=i, axis=1, inplace=True)
@@ -25,6 +22,9 @@ day_df.rename(columns={
     'weathersit': 'weather_cond',
     'cnt': 'count'
 }, inplace=True)
+
+# Menghapus kolom yang tidak digunakan
+drop_col = ['windspeed']
 
 # Mengubah kolom dan baris 
 day_df['month'] = day_df['month'].map({
@@ -110,7 +110,7 @@ def create_weather_rent_df(df):
 min_date = pd.to_datetime(day_df['dateday']).dt.date.min()
 max_date = pd.to_datetime(day_df['dateday']).dt.date.max()
 
-# Mengambil start_date & end_date dari date_input
+# Mengambil start_date & end_date
 start_date, end_date = st.date_input(
     label='Rentang Waktu',
     min_value= min_date,
@@ -135,10 +135,10 @@ weather_rent_df = create_weather_rent_df(main_df)
 # Membuat Dashboard
 
 # Membuat judul
-st.title('Bike Sharing Dashboard')
+st.title('BIKE SHARING DASHBOARD')
 
 # Membuat jumlah penyewaan sepeda harian
-st.header('Daily Rentals')
+st.header('1. Daily Rentals')
 st.markdown("---")
 col1, col2, col3 = st.columns(3)
 
@@ -155,7 +155,7 @@ with col3:
     st.metric('Total User', value= daily_rent_total)
 
 # jumlah penyewaan sepeda bulanan
-st.header('Monthly Rentals')
+st.header('2. Monthly Rentals')
 st.markdown("---")
 fig, ax = plt.subplots(figsize=(24, 8))
 ax.plot(
@@ -176,7 +176,7 @@ ax.tick_params(axis='y', labelsize=16)
 st.pyplot(fig)
 
 #  jumlah penyewaan berdasarkan musiman
-st.header('Seasonly Rentals')
+st.header('3. Seasonly Rentals')
 st.markdown("---")
 
 fig, ax = plt.subplots(figsize=(14, 8))
@@ -211,7 +211,7 @@ ax.legend()
 st.pyplot(fig)
 
 # Penyewaan berdasarkan kondisi cuaca
-st.header('Weatherly Rentals')
+st.header('4. Weatherly Rentals')
 st.markdown("---")
 
 fig, ax = plt.subplots(figsize=(14, 8))
@@ -235,7 +235,7 @@ ax.tick_params(axis='y', labelsize=16)
 st.pyplot(fig)
 
 # Jumlah penyewaan berdasarkan weekday, working dan holiday
-st.header('Weekday, Workingday, and Holiday Rentals')
+st.header('5. Weekday, Workingday, and Holiday Rentals')
 st.markdown("---")
 
 fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(15,22))
@@ -248,7 +248,7 @@ colors3=["tab:red", "tab:pink", "tab:blue", "tab:green", "tab:purple", "tab:brow
 f, ax = plt.subplots(figsize=(8,12))
 sns.despine(f)
 sns.barplot(
-    x='workingday',
+    x='Workingday',
     y='count',
     data=workingday_rent_df,
     palette='magma',
@@ -266,7 +266,7 @@ axes[0].tick_params(axis='y', labelsize=16)
 f, ax = plt.subplots(figsize=(8,12))
 sns.despine(f)
 sns.barplot(
-  x='holiday',
+  x='Holiday',
   y='count',
   data=holiday_rent_df,
   palette=colors2,
@@ -283,7 +283,7 @@ axes[1].tick_params(axis='y', labelsize=16)
 # Berdasarkan weekday
 f, ax = plt.subplots(figsize=(8,12))
 sns.barplot(
-  x='weekday',
+  x='Weekday',
   y='count',
   data=weekday_rent_df,
   palette=colors3,
