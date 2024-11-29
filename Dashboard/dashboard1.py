@@ -288,7 +288,7 @@ for index, row in enumerate(weekday_rent_df['count']):
     axes[2].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
 axes[2].set_title('Jumlah Penyewa on Weekday')
-axes[2].set_ylabel(None)
+axes[2].set_ylabel('Weekday', fontsize=14)
 axes[2].tick_params(axis='x', labelsize=16)
 axes[2].tick_params(axis='y', labelsize=16)
 
