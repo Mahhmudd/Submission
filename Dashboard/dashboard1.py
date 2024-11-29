@@ -14,6 +14,9 @@ for i in day_df.columns:
   if i in drop_col:
     day_df.drop(labels=i, axis=1, inplace=True)
 
+# Menghapus kolom yang tidak digunakan
+drop_col = ['windspeed']
+
 # ganti judul kolom
 day_df.rename(columns={
     'dteday': 'dateday',
@@ -23,8 +26,7 @@ day_df.rename(columns={
     'cnt': 'count'
 }, inplace=True)
 
-# Menghapus kolom yang tidak digunakan
-drop_col = ['windspeed']
+
 
 # Mengubah kolom dan baris 
 day_df['month'] = day_df['month'].map({
