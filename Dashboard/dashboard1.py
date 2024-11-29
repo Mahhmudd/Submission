@@ -181,7 +181,6 @@ st.pyplot(fig)
 st.divider()
 
 #  jumlah penyewaan berdasarkan musiman
-st.markdown("---")
 st.header('3. Seasonly Rentals')
 
 fig, ax = plt.subplots(figsize=(14, 8))
