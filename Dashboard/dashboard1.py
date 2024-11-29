@@ -169,8 +169,8 @@ for index, row in enumerate(monthly_rent_df['count']):
 
 ax.set_xlabel('Month', fontsize=20)
 ax.set_ylabel('Rent', fontsize=20)
-ax.tick_params(axis='x', labelsize=20, rotation=45)
-ax.tick_params(axis='y', labelsize=20)
+ax.tick_params(axis='x', labelsize=16, rotation=45)
+ax.tick_params(axis='y', labelsize=16)
 st.pyplot(fig)
 
 #  jumlah penyewaan berdasarkan musiman
@@ -224,8 +224,8 @@ sns.barplot(
 for index, row in enumerate(weather_rent_df['count']):
     ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
-ax.set_xlabel('weather', fontsize=20)
-ax.set_ylabel('rent', fontsize=20)
+ax.set_xlabel('Weather', fontsize=20)
+ax.set_ylabel('Rent', fontsize=20)
 ax.tick_params(axis='x', labelsize=16)
 ax.tick_params(axis='y', labelsize=16)
 st.pyplot(fig)
@@ -252,7 +252,7 @@ sns.barplot(
 for index, row in enumerate(workingday_rent_df['count']):
     axes[0].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
-axes[0].set_title('Jumlah Penyewa on Working Day')
+axes[0].set_title('Jumlah Penyewa pada Working Day')
 axes[0].set_ylabel(None)
 axes[0].tick_params(axis='x', labelsize=16)
 axes[0].tick_params(axis='y', labelsize=16)
@@ -270,12 +270,13 @@ sns.barplot(
 for index, row in enumerate(holiday_rent_df['count']):
     axes[1].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
-axes[1].set_title('Jumlah Penyewa on Holiday')
+axes[1].set_title('Jumlah Penyewa pada Holiday')
 axes[1].set_ylabel(None)
 axes[1].tick_params(axis='x', labelsize=16)
 axes[1].tick_params(axis='y', labelsize=16)
 
 # Berdasarkan weekday
+st.text_area("Weekday")
 f, ax = plt.subplots(figsize=(8,12))
 sns.barplot(
   x='weekday',
@@ -287,8 +288,9 @@ sns.barplot(
 for index, row in enumerate(weekday_rent_df['count']):
     axes[2].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
-axes[2].set_title('Jumlah Penyewa on Weekday')
-axes[2].set_ylabel('Rent', fontsize=14)
+axes[2].set_title('Jumlah Penyewa pada Weekday')
+axes[2].set_xlabel('Weekday', fontsize=20)
+axes[2].set_ylabel('Rent', fontsize=20)
 axes[2].tick_params(axis='x', labelsize=16)
 axes[2].tick_params(axis='y', labelsize=16)
 
