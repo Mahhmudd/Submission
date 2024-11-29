@@ -139,6 +139,7 @@ st.title('Bike Sharing Dashboard')
 
 # Membuat jumlah penyewaan sepeda harian
 st.header('Daily Rentals')
+st.markdown("---")
 col1, col2, col3 = st.columns(3)
 
 with col1:
@@ -155,6 +156,7 @@ with col3:
 
 # jumlah penyewaan sepeda bulanan
 st.header('Monthly Rentals')
+st.markdown("---")
 fig, ax = plt.subplots(figsize=(24, 8))
 ax.plot(
     monthly_rent_df.index,
@@ -175,6 +177,7 @@ st.pyplot(fig)
 
 #  jumlah penyewaan berdasarkan musiman
 st.header('Seasonly Rentals')
+st.markdown("---")
 
 fig, ax = plt.subplots(figsize=(14, 8))
 
@@ -209,6 +212,7 @@ st.pyplot(fig)
 
 # Penyewaan berdasarkan kondisi cuaca
 st.header('Weatherly Rentals')
+st.markdown("---")
 
 fig, ax = plt.subplots(figsize=(14, 8))
 
@@ -232,6 +236,7 @@ st.pyplot(fig)
 
 # Jumlah penyewaan berdasarkan weekday, working dan holiday
 st.header('Weekday, Workingday, and Holiday Rentals')
+st.markdown("---")
 
 fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(15,22))
 
@@ -252,8 +257,6 @@ sns.barplot(
 for index, row in enumerate(workingday_rent_df['count']):
     axes[0].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
-    st.markdown("-Workingday-")
-
 axes[0].set_title('Jumlah Penyewa pada Working Day')
 axes[0].set_ylabel(None)
 axes[0].tick_params(axis='x', labelsize=16)
@@ -272,8 +275,6 @@ sns.barplot(
 for index, row in enumerate(holiday_rent_df['count']):
     axes[1].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
-st.markdown("-Holiday-")
-
 axes[1].set_title('Jumlah Penyewa pada Holiday')
 axes[1].set_ylabel(None)
 axes[1].tick_params(axis='x', labelsize=16)
@@ -291,7 +292,6 @@ sns.barplot(
 for index, row in enumerate(weekday_rent_df['count']):
     axes[2].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
-st.markdown("-Weekday-")
 axes[2].set_title('Jumlah Penyewa pada Weekday')
 axes[2].set_xlabel('Weekday', fontsize=20)
 axes[2].set_ylabel('Rent', fontsize=20)
