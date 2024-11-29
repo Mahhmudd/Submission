@@ -218,7 +218,6 @@ st.divider()
 
 # Penyewaan berdasarkan kondisi cuaca
 st.header('4. Weatherly Rentals')
-st.markdown("---")
 
 fig, ax = plt.subplots(figsize=(14, 8))
 
@@ -239,11 +238,11 @@ ax.set_ylabel('Rent', fontsize=20)
 ax.tick_params(axis='x', labelsize=16)
 ax.tick_params(axis='y', labelsize=16)
 st.pyplot(fig)
-st.divider()
 
 # Jumlah penyewaan berdasarkan weekday, working dan holiday
-st.header('5. Weekday, Workingday, and Holiday Rentals')
 st.markdown("---")
+st.header('5. Weekday, Workingday, and Holiday Rentals')
+
 
 fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(15,22))
 
