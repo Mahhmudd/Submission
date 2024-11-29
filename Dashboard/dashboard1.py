@@ -136,6 +136,8 @@ weather_rent_df = create_weather_rent_df(main_df)
 
 # Membuat judul
 st.title('BIKE SHARING DASHBOARD')
+st.markdown("---")
+st.markdown("---")
 
 # Membuat jumlah penyewaan sepeda harian
 st.header('1. Daily Rentals')
