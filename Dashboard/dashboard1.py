@@ -300,8 +300,8 @@ sns.barplot(
 for index, row in enumerate(weekday_rent_df['count']):
     axes[2].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
     
-axes[2].set_title('Jumlah Penyewa pada Weekday')
 axes[2].axhline(y=axes[2].get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
+axes[2].set_title('Jumlah Penyewa pada Weekday')
 axes[2].set_xlabel('weekday', fontsize=16)
 axes[2].set_ylabel('Rent', fontsize=20)
 axes[2].tick_params(axis='x', labelsize=16)
