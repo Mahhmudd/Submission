@@ -249,67 +249,7 @@ colors1=["tab:orange", "tab:red"]
 colors2=["tab:orange", "tab:red"]
 colors3=["tab:red", "tab:pink", "tab:blue", "tab:green", "tab:purple", "tab:brown", "tab:orange"]
 
-# Weekday plot with categorical data (e.g., month)
-weekday_rent_df_categorical = weekday_rent_df.merge(day_df[['dateday', 'month']], how='left', on='dateday')
-fig, ax = plt.subplots(figsize=(8,12))
-sns.barplot(
-    x='month',  # Replace 'weekday' with your chosen categorical data
-    y='count',
-    data=weekday_rent_df_categorical,
-    palette=colors3,
-    ax=ax
-)
 
-for index, row in enumerate(weekday_rent_df_categorical['count']):
-    ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
-ax.set_title('Jumlah Penyewa per Bulan')  # Adjust title based on chosen data
-ax.axhline(y=ax.get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
-ax.set_ylabel(None)
-ax.tick_params(axis='x', labelsize=16)
-ax.tick_params(axis='y', labelsize=16)
-
-# Workingday plot with categorical data (e.g., season)
-workingday_rent_df_categorical = workingday_rent_df.merge(day_df[['dateday', 'season']], how='left', on='dateday')
-axes[0].clear()  # Clear previous workingday plot
-sns.barplot(
-    x='season',  # Replace 'workingday' with your chosen categorical data
-    y='count',
-    data=workingday_rent_df_categorical,
-    palette='magma',
-    ax=axes[0]
-)
-
-for index, row in enumerate(workingday_rent_df_categorical['count']):
-    axes[0].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
-
-axes[0].set_title('Jumlah Penyewa per Musim')  # Adjust title based on chosen data
-axes[0].axhline(y=axes[0].get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
-axes[0].set_ylabel(None)
-axes[0].tick_params(axis='x', labelsize=16)
-axes[0].tick_params(axis='y', labelsize=16)
-
-# Holiday plot with categorical data (e.g., year)
-holiday_rent_df_categorical = holiday_rent_df.merge(day_df[['dateday', 'year']], how='left', on='dateday')
-axes[1].clear()  # Clear previous holiday plot
-sns.barplot(
-    x='year',  # Replace 'holiday' with your chosen categorical data
-    y='count',
-    data=holiday_rent_df_categorical,
-    palette=colors2,
-    ax=axes[1]
-)
-
-for index, row in enumerate(holiday_rent_df_categorical['count']):
-    axes[1].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
-
-axes[1].set_title('Jumlah Penyewa per Tahun')  # Adjust title based on chosen data
-axes[1].axhline(y=axes[1].get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
-axes[1].set_ylabel(None)
-axes[1].tick_params(axis='x', labelsize=16)
-axes[1].tick_params(axis='y', labelsize=16)
-
-plt.tight_layout()
-st.pyplot(fig)
 st.caption('Rifki Muhammad 2024')
 
