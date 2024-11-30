@@ -262,7 +262,7 @@ for index, row in enumerate(workingday_rent_df['count']):
     ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
 ax.set_title('Jumlah Penyewa pada Working Day')
-ax.axhline(y=axes.get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
+ax.axhline(y=ax.get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
 ax.set_ylabel(None)
 ax.tick_params(axis='x', labelsize=16)
 ax.tick_params(axis='y', labelsize=16)
@@ -282,7 +282,7 @@ for index, row in enumerate(holiday_rent_df['count']):
     ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
 ax.set_title('Jumlah Penyewa pada Holiday')
-ax.axhline(y=axes.get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
+ax.axhline(y=ax.get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
 ax.set_ylabel(None)
 ax.tick_params(axis='x', labelsize=16)
 ax.tick_params(axis='y', labelsize=16)
@@ -301,7 +301,7 @@ sns.barplot(
 for index, row in enumerate(weekday_rent_df['count']):
     ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
-ax.axhline(y=axes.get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
+ax.axhline(y=ax.get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
 ax.set_title('Jumlah Penyewa pada Weekday')
 ax.set_xlabel('weekday', fontsize=16)
 ax.set_ylabel('Rent', fontsize=20)
