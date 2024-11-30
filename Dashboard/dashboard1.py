@@ -169,7 +169,7 @@ with col3:
 st.markdown("---")
 st.header('2. Monthly Rentals')
 
-fig, ax = plt.subplots(figsize=(15, 15))
+fig, ax = plt.subplots(figsize=(15, 8))
 ax.plot(
     monthly_rent_df.index,
     monthly_rent_df['count'],
