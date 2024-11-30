@@ -250,7 +250,6 @@ colors3=["tab:red", "tab:pink", "tab:blue", "tab:green", "tab:purple", "tab:brow
 
 f, ax = plt.subplots(figsize=(8,12))
 
-sns.despine(f)
 sns.barplot(
     x='workingday',
     y='count',
@@ -270,7 +269,6 @@ ax.tick_params(axis='y', labelsize=16)
 # Berdasarkan holiday
 f, ax = plt.subplots(figsize=(8,12))
 
-sns.despine(f)
 sns.barplot(
     x='holiday',
     y='count',
@@ -296,7 +294,6 @@ sns.barplot(
     data=weekday_rent_df,
     palette=colors3,
 )
-
 
 for index, row in enumerate(weekday_rent_df['count']):
     ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
