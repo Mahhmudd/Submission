@@ -238,12 +238,35 @@ ax.tick_params(axis='y', labelsize=16)
 st.pyplot(fig)
 
 # Jumlah penyewaan berdasarkan weekday, workingday, and holiday rentals
-
 st.markdown("---")
 st.header('5. Weekday, Workingday, and Holiday Rentals by Season')
 
+# Combining weekday and season data
+weekday_season_df = pd.pivot_table(
+    day_df,
+    values='count',
+    index=['weekday', 'season'],
+    aggfunc='sum'
+).reset_index()
+
+# Combining workingday and season data
+workingday_season_df = pd.pivot_table(
+    day_df[day_df['workingday'] != 'NA'],
+    values='count',
+    index=['workingday', 'season'],
+    aggfunc='sum'
+).reset_index()
+
+# Combining holiday and season data
+holiday_season_df = pd.pivot_table(
+    day_df[day_df['holiday'] != 'NA'],
+    values='count',
+    index=['holiday', 'season'],
+    aggfunc='sum'
+).reset_index()
+
 # Plotting the data
-fig, ax = plt.subplots(figsize=(15, 22))
+fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(15, 22))
 
 colors1 = ["tab:orange", "tab:red", "tab:green", "tab:purple"]
 colors2 = ["tab:orange", "tab:red"]
@@ -251,23 +274,64 @@ colors3 = ["tab:red", "tab:pink", "tab:blue", "tab:green", "tab:purple", "tab:br
 
 # Working Day by Season
 f, ax = plt.subplots(figsize=(8, 12))
-
+sns.despine(f)
 sns.barplot(
     x='season',
     y='count',
     hue='workingday',
-    data=workingday_rent_df,
-    palette=colors1
+    data=workingday_season_df,
+    palette=colors1,
+    ax=axes[0]
 )
 
-for index, row in workingday_rent_df.iterrows():
-    ax.text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=12)
+for index, row in workingday_season_df.iterrows():
+    axes[0].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=12)
 
-ax.set_title('Working Day Rentals by Season')
-ax.axhline(y=ax.get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
-ax.set_ylabel(None)
-ax.tick_params(axis='x', labelsize=16)
-ax.tick_params(axis='y', labelsize=16)
-ax.legend(loc='upper left')
+axes[0].set_title('Working Day Rentals by Season')
+axes[0].axhline(y=axes[0].get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
+axes[0].set_ylabel(None)
+axes[0].tick_params(axis='x', labelsize=16)
+axes[0].tick_params(axis='y', labelsize=16)
+axes[0].legend(loc='upper left')
+
+# Holiday by Season
+f, ax = plt.subplots(figsize=(8, 12))
+sns.despine(f)
+sns.barplot(
+    x='season',
+    y='count',
+    hue='holiday',
+    data=holiday_season_df,
+    palette=colors2,
+    ax=axes[1]
+)
+
+for index, row in holiday_season_df.iterrows():
+    axes[1].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=12)
+
+axes[1].set_title('Holiday Rentals by Season')
+axes[1].axhline(y=axes[1].get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
+axes[1].set_ylabel(None)
+axes[1].tick_params(axis='x', labelsize=16)
+axes[1].tick_params(axis='y', labelsize=16)
+axes[1].legend(loc='upper left')
+
+# Weekday by Season
+f, ax = plt.subplots(figsize=(8, 12))
+sns.barplot(
+    x='season',
+    y='count',
+    hue='weekday',
+    data=weekday_season_df,
+    palette=colors3,
+    ax=axes[2]
+)
+
+for index, row in weekday_season_df.iterrows():
+    axes[2].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=12)
+
+axes[2].axhline(y=axes[2].get_ylim()[1] + 0.1, xmin=0,)
+st.pyplot(fig)
+
 
 st.caption('Rifki Muhammad 2024')
