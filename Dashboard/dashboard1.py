@@ -263,8 +263,8 @@ sns.barplot(
 axes[0].set_title('Jumlah Penyewa pada Working Day')
 axes[0].axhline(y=axes[0].get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
 axes[0].set_ylabel(None)
-axes[0].tick_params(axis='x', labelsize=16)
-axes[0].tick_params(axis='y', labelsize=16)
+#axes[0].tick_params(axis='x', labelsize=16)
+#axes[0].tick_params(axis='y', labelsize=16)
 
 # Berdasarkan holiday
 f, ax = plt.subplots(figsize=(8,12))
