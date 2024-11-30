@@ -242,7 +242,7 @@ st.pyplot(fig)
 st.markdown("---")
 st.header('5. Weekday, Workingday, and Holiday Rentals')
 
-fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(15,22))
+fig, axes = plt.subplots(figsize=(15,22))
 
 colors1=["tab:orange", "tab:red"]
 colors2=["tab:orange", "tab:red"]
@@ -257,17 +257,17 @@ sns.barplot(
     x='workingday',
     y='count',
     data=workingday_rent_df,
-    palette='magma',
-    ax=axes[0])
+    palette=colors2,
+    ax=axes)
 
 for index, row in enumerate(workingday_rent_df['count']):
-    axes[0].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
+    axes.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
-axes[0].set_title('Jumlah Penyewa pada Working Day')
-axes[0].axhline(y=axes[0].get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
-axes[0].set_ylabel(None)
-axes[0].tick_params(axis='x', labelsize=16)
-axes[0].tick_params(axis='y', labelsize=16)
+axes.set_title('Jumlah Penyewa pada Working Day')
+axes.axhline(y=axes[0].get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
+axes.set_ylabel(None)
+axes.tick_params(axis='x', labelsize=16)
+axes.tick_params(axis='y', labelsize=16)
 
 # Berdasarkan holiday
 f, ax = plt.subplots(figsize=(8,12))
@@ -278,16 +278,16 @@ sns.barplot(
     y='count',
     data=holiday_rent_df,
     palette=colors2,
-    ax=axes[1])
+    ax=axes)
 
 for index, row in enumerate(holiday_rent_df['count']):
-    axes[1].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
+    axes.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
-axes[1].set_title('Jumlah Penyewa pada Holiday')
-axes[1].axhline(y=axes[1].get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
-axes[1].set_ylabel(None)
-axes[1].tick_params(axis='x', labelsize=16)
-axes[1].tick_params(axis='y', labelsize=16)
+axes.set_title('Jumlah Penyewa pada Holiday')
+axes.axhline(y=axes[1].get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
+axes.set_ylabel(None)
+axes.tick_params(axis='x', labelsize=16)
+axes.tick_params(axis='y', labelsize=16)
 
 # Berdasarkan weekday
 f, ax = plt.subplots(figsize=(8,12))
@@ -297,18 +297,18 @@ sns.barplot(
     y='count',
     data=weekday_rent_df,
     palette=colors3,
-    ax=axes[2])
+    ax=axes)
 
 
 for index, row in enumerate(weekday_rent_df['count']):
-    axes[2].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
+    axes.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
-axes[2].axhline(y=axes[2].get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
-axes[2].set_title('Jumlah Penyewa pada Weekday')
-axes[2].set_xlabel('weekday', fontsize=16)
-axes[2].set_ylabel('Rent', fontsize=20)
-axes[2].tick_params(axis='x', labelsize=16)
-axes[2].tick_params(axis='y', labelsize=16)
+axes.axhline(y=axes[2].get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
+axes.set_title('Jumlah Penyewa pada Weekday')
+axes.set_xlabel('weekday', fontsize=16)
+axes.set_ylabel('Rent', fontsize=20)
+axes.tick_params(axis='x', labelsize=16)
+axes.tick_params(axis='y', labelsize=16)
 
 plt.tight_layout()
 st.pyplot(fig)
