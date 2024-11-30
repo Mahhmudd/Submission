@@ -288,7 +288,6 @@ for index, row in workingday_season_df.iterrows():
     axes[0].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=8)
 
 axes[0].set_title('Working Day Rentals by Season')
-axes[0].axhline(y=axes[0].get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
 axes[0].set_ylabel(None)
 axes[0].tick_params(axis='x', labelsize=16)
 axes[0].tick_params(axis='y', labelsize=16)
@@ -310,7 +309,6 @@ for index, row in holiday_season_df.iterrows():
     axes[1].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=8)
 
 axes[1].set_title('Holiday Rentals by Season')
-axes[1].axhline(y=axes[1].get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
 axes[1].set_ylabel(None)
 axes[1].tick_params(axis='x', labelsize=16)
 axes[1].tick_params(axis='y', labelsize=16)
