@@ -160,7 +160,7 @@ with col3:
 st.markdown("---")
 st.header('2. Monthly Rentals')
 
-fig, ax = plt.subplots(figsize=(12, 14))
+fig, ax = plt.subplots(figsize=(8, 14))
 ax.plot(
     monthly_rent_df.index,
     monthly_rent_df['count'],
@@ -182,7 +182,7 @@ st.divider()
 #  jumlah penyewaan berdasarkan musiman
 st.header('3. Seasonly Rentals')
 
-fig, ax = plt.subplots(figsize=(12, 14))
+fig, ax = plt.subplots(figsize=(8, 14))
 
 sns.barplot(
     x='season',
@@ -217,7 +217,7 @@ st.divider()
 # Penyewaan berdasarkan kondisi cuaca
 st.header('4. Weatherly Rentals')
 
-fig, ax = plt.subplots(figsize=(12, 14))
+fig, ax = plt.subplots(figsize=(8, 14))
 
 colors=["tab:orange", "tab:red", "tab:green"]
 
