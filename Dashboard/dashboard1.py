@@ -254,12 +254,12 @@ f, ax = plt.subplots(figsize=(8,12))
 sns.despine(f)
 sns.barplot(
     x=workingday_rent_df.index,
-    y=workingday_rent_df['count'],
+    y=weather_rent_df['count'],
     data=workingday_rent_df,
     palette='magma',
     ax=axes[0])
 
-for index, row in enumerate(workingday_rent_df['count']):
+for index, row in enumerate(weather_rent_df['count']):
     axes[0].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
     
 axes[0].set_title('Jumlah Penyewa pada Working Day')
