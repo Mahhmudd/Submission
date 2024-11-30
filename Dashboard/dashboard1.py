@@ -259,7 +259,7 @@ sns.barplot(
     palette='magma',
     ax=axes[0])
 
-for index, row in enumerate(weather_rent_df['count']):
+for index, row in enumerate(workingday_rent_df['year']):
     axes[0].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
     
 axes[0].set_title('Jumlah Penyewa pada Working Day')
