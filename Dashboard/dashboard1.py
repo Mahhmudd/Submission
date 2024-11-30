@@ -238,19 +238,6 @@ ax.tick_params(axis='x', labelsize=16)
 ax.tick_params(axis='y', labelsize=16)
 st.pyplot(fig)
 
-# Berdasarkan workingday
-st.header('Workingday')
-Fig, ax = plt.subplots(figsize=(8,12))
-
-sns.displot(
-    x="workingday",
-    y="count" 
-    hue="season", 
-)
-
-for index, row in enumerate(workingday_rent_df['count']):
-    ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
-
 # Jumlah penyewaan berdasarkan weekday, working dan holiday
 st.markdown("---")
 st.header('5. Weekday, Workingday, and Holiday Rentals')
