@@ -242,6 +242,8 @@ st.pyplot(fig)
 st.markdown("---")
 st.header('5. Weekday, Workingday, and Holiday Rentals')
 
+fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(15,22))
+
 colors1=["tab:orange", "tab:red"]
 colors2=["tab:orange", "tab:red"]
 colors3=["tab:red", "tab:pink", "tab:blue", "tab:green", "tab:purple", "tab:brown", "tab:orange"]
