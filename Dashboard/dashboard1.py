@@ -266,7 +266,7 @@ holiday_season_df = pd.pivot_table(
 ).reset_index()
 
 # Plotting the data
-fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(15, 22))
+#fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(15, 22))
 
 colors1 = ["tab:orange", "tab:red", "tab:green", "tab:purple"]
 colors2 = ["tab:orange", "tab:red"]
@@ -280,8 +280,8 @@ sns.barplot(
     y='count',
     hue='workingday',
     data=workingday_season_df,
-    palette=colors1,
-    ax=axes[0]
+    palette=colors1
+    #ax=axes[0]
 )
 
 #for index, row in workingday_season_df.iterrows():
@@ -301,8 +301,8 @@ sns.barplot(
     y='count',
     hue='holiday',
     data=holiday_season_df,
-    palette=colors2,
-    ax=axes[1]
+    palette=colors2
+    #ax=axes[1]
 )
 
 #for index, row in holiday_season_df.iterrows():
@@ -321,8 +321,8 @@ sns.barplot(
     y='count',
     hue='weekday',
     data=weekday_season_df,
-    palette=colors3,
-    ax=axes[2]
+    palette=colors3
+    #ax=axes[2]
 )
 
 #for index, row in weekday_season_df.iterrows():
