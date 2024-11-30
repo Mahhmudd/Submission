@@ -243,7 +243,7 @@ st.markdown("---")
 st.header('5. Weekday, Workingday, and Holiday Rentals by Season')
 
 # Plotting the data
-fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(15, 22))
+fig, axes = plt.subplots(figsize=(15, 22))
 
 colors1 = ["tab:orange", "tab:red", "tab:green", "tab:purple"]
 colors2 = ["tab:orange", "tab:red"]
@@ -257,18 +257,17 @@ sns.barplot(
     y='count',
     hue='workingday',
     data=workingday_season_df,
-    palette=colors1,
-    ax=axes[0]
+    palette=colors1
 )
 
 for index, row in workingday_season_df.iterrows():
-    axes[0].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=12)
+    ax.text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=12)
 
-axes[0].set_title('Working Day Rentals by Season')
-axes[0].axhline(y=axes[0].get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
-axes[0].set_ylabel(None)
-axes[0].tick_params(axis='x', labelsize=16)
-axes[0].tick_params(axis='y', labelsize=16)
-axes[0].legend(loc='upper left')
+ax.set_title('Working Day Rentals by Season')
+ax.axhline(y=ax.get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
+ax.set_ylabel(None)
+ax.tick_params(axis='x', labelsize=16)
+ax.tick_params(axis='y', labelsize=16)
+ax.legend(loc='upper left')
 
 st.caption('Rifki Muhammad 2024')
