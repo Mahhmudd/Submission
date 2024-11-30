@@ -265,7 +265,7 @@ sns.barplot(
     x='season',
     y='count',
     hue='workingday',
-    data=workingday_season_df,
+    data=day_df,
     palette=colors1,
     ax=axes[0]
 )
@@ -283,7 +283,7 @@ sns.barplot(
     x='season',
     y='count',
     hue='holiday',
-    data=holiday_season_df,
+    data=day_df,
     palette=colors2,
     ax=axes[1]
 )
