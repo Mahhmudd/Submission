@@ -160,7 +160,7 @@ with col3:
 st.markdown("---")
 st.header('2. Monthly Rentals')
 
-fig, ax = plt.subplots(figsize=(15, 18))
+fig, ax = plt.subplots(figsize=(12, 18))
 ax.plot(
     monthly_rent_df.index,
     monthly_rent_df['count'],
@@ -182,7 +182,7 @@ st.divider()
 #  jumlah penyewaan berdasarkan musiman
 st.header('3. Seasonly Rentals')
 
-fig, ax = plt.subplots(figsize=(15, 18))
+fig, ax = plt.subplots(figsize=(12, 18))
 
 sns.barplot(
     x='season',
@@ -217,7 +217,7 @@ st.divider()
 # Penyewaan berdasarkan kondisi cuaca
 st.header('4. Weatherly Rentals')
 
-fig, ax = plt.subplots(figsize=(15, 18))
+fig, ax = plt.subplots(figsize=(12, 18))
 
 colors=["tab:orange", "tab:red", "tab:green"]
 
@@ -273,7 +273,7 @@ colors2 = ["tab:orange", "tab:red"]
 colors3 = ["tab:red", "tab:pink", "tab:blue", "tab:green", "tab:purple", "tab:brown", "tab:orange"]
 
 # Working Day by Season
-f, ax = plt.subplots(figsize=(15, 18))
+f, ax = plt.subplots(figsize=(12, 18))
 sns.despine(f)
 sns.barplot(
     x='season',
@@ -294,7 +294,7 @@ axes[0].tick_params(axis='y', labelsize=16)
 axes[0].legend(loc='upper left')
 
 # Holiday by Season
-f, ax = plt.subplots(figsize=(15, 18))
+f, ax = plt.subplots(figsize=(12, 18))
 sns.despine(f)
 sns.barplot(
     x='season',
@@ -315,7 +315,7 @@ axes[1].tick_params(axis='y', labelsize=16)
 axes[1].legend(loc='upper left')
 
 # Weekday by Season
-f, ax = plt.subplots(figsize=(15, 18))
+f, ax = plt.subplots(figsize=(12, 18))
 sns.barplot(
     x='season',
     y='count',
