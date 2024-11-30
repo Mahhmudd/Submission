@@ -224,7 +224,6 @@ colors=["tab:orange", "tab:red", "tab:green"]
 
 sns.barplot(
     x=weather_rent_df.index,
-    y=weather_rent_df['count'],
     palette=colors,
     ax=ax
 )
