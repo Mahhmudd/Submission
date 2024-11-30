@@ -224,7 +224,6 @@ st.pyplot(fig)
 st.divider()
 
 # Jumlah penyewaan berdasarkan workingday, holiday dan weekday 
-st.markdown("---")
 st.header('4. Workingday, Holiday dan Weekday berdasarkan Season')
 
 # Gabungkan weekday dan season data
