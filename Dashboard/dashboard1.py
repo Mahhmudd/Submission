@@ -254,7 +254,7 @@ f, ax = plt.subplots(figsize=(8,12))
 sns.despine(f)
 sns.barplot(
     x=workingday_rent_df.index,
-    y='Weather',
+    y=workingday_rent_df['count'],
     data=workingday_rent_df,
     palette='magma',
     ax=axes[0])
