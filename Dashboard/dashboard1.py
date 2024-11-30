@@ -226,7 +226,7 @@ st.divider()
 # Penyewaan berdasarkan kondisi cuaca
 st.header('4. Weatherly Rentals')
 
-fig, ax = plt.subplots(figsize=(22, 15))
+fig, ax = plt.subplots(figsize=(8, 15))
 
 colors=["tab:orange", "tab:red", "tab:green"]
 
