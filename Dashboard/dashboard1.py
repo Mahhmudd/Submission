@@ -105,31 +105,6 @@ def create_weather_rent_df(df):
     })
     return weather_rent_df
   
-  # Combining weekday and season data
-weekday_season_df = pd.pivot_table(
-    day_df,
-    values='count',
-    index=['weekday', 'season'],
-    aggfunc='sum'
-).reset_index()
-
-# Combining workingday and season data
-workingday_season_df = pd.pivot_table(
-    day_df[day_df['workingday'] != 'NA'],
-    values='count',
-    index=['workingday', 'season'],
-    aggfunc='sum'
-).reset_index()
-
-# Combining holiday and season data
-holiday_season_df = pd.pivot_table(
-    day_df[day_df['holiday'] != 'NA'],
-    values='count',
-    index=['holiday', 'season'],
-    aggfunc='sum'
-).reset_index()
-
-
 # Membuat filter
 min_date = pd.to_datetime(day_df['dateday']).dt.date.min()
 max_date = pd.to_datetime(day_df['dateday']).dt.date.max()
@@ -295,43 +270,5 @@ axes[0].set_ylabel(None)
 axes[0].tick_params(axis='x', labelsize=16)
 axes[0].tick_params(axis='y', labelsize=16)
 axes[0].legend(loc='upper left')
-
-# Holiday by Season
-f, ax = plt.subplots(figsize=(8, 12))
-sns.despine(f)
-sns.barplot(
-    x='season',
-    y='count',
-    hue='holiday',
-    data=holiday_season_df,
-    palette=colors2,
-    ax=axes[1]
-)
-
-for index, row in holiday_season_df.iterrows():
-    axes[1].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=12)
-
-axes[1].set_title('Holiday Rentals by Season')
-axes[1].axhline(y=axes[1].get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
-axes[1].set_ylabel(None)
-axes[1].tick_params(axis='x', labelsize=16)
-axes[1].tick_params(axis='y', labelsize=16)
-axes[1].legend(loc='upper left')
-
-# Weekday by Season
-f, ax = plt.subplots(figsize=(8, 12))
-sns.barplot(
-    x='season',
-    y='count',
-    hue='weekday',
-    data=weekday_season_df,
-    palette=colors3,
-    ax=axes[2]
-)
-
-for index, row in weekday_season_df.iterrows():
-    axes[2].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=12)
-
-axes[2].axhline(y=axes[2].get_ylim()[1] + 0.1, xmin=0)
 
 st.caption('Rifki Muhammad 2024')
