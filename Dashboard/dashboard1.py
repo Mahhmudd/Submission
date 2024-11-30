@@ -273,7 +273,7 @@ colors2 = ["tab:orange", "tab:red"]
 colors3 = ["tab:red", "tab:pink", "tab:blue", "tab:green", "tab:purple", "tab:brown", "tab:orange"]
 
 # Working Day by Season
-f, ax = plt.subplots(figsize=(12, 14))
+f, ax = plt.subplots(figsize=(15, 22))
 sns.despine(f)
 sns.barplot(
     x='season',
@@ -294,7 +294,7 @@ axes[0].tick_params(axis='y', labelsize=16)
 axes[0].legend(loc='upper left')
 
 # Holiday by Season
-f, ax = plt.subplots(figsize=(12, 14))
+f, ax = plt.subplots(figsize=(15, 22))
 sns.despine(f)
 sns.barplot(
     x='season',
@@ -315,7 +315,7 @@ axes[1].tick_params(axis='y', labelsize=16)
 axes[1].legend(loc='upper left')
 
 # Weekday by Season
-f, ax = plt.subplots(figsize=(12, 14))
+f, ax = plt.subplots(figsize=(15, 22))
 sns.barplot(
     x='season',
     y='count',
