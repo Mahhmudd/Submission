@@ -242,6 +242,31 @@ st.pyplot(fig)
 st.markdown("---")
 st.header('5. Weekday, Workingday, and Holiday Rentals by Season')
 
+# Combining weekday and season data
+weekday_season_df = pd.pivot_table(
+    day_df,
+    values='count',
+    index=['weekday', 'season'],
+    aggfunc='sum'
+).reset_index()
+
+# Combining workingday and season data
+workingday_season_df = pd.pivot_table(
+    day_df[day_df['workingday'] != 'NA'],
+    values='count',
+    index=['workingday', 'season'],
+    aggfunc='sum'
+).reset_index()
+
+# Combining holiday and season data
+holiday_season_df = pd.pivot_table(
+    day_df[day_df['holiday'] != 'NA'],
+    values='count',
+    index=['holiday', 'season'],
+    aggfunc='sum'
+).reset_index()
+
+
 # Plotting the data
 fig, axes = plt.subplots(figsize=(15, 22))
 
