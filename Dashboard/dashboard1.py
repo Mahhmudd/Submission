@@ -311,7 +311,7 @@ axes[1].legend(loc='upper left')
 # Weekday by Season
 f, ax = plt.subplots(figsize=(15, 22))
 
-# Define the desired weekday order
+#mengurutkan Weekday
 weekday_order = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
 sns.barplot(
