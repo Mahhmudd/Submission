@@ -277,7 +277,7 @@ f, ax = plt.subplots(figsize=(15, 22))
 sns.despine(f)
 sns.barplot(
     x='season',
-    y='casual',
+    y='count',
     hue='workingday',
     data=workingday_season_df,
     palette=colors1,
