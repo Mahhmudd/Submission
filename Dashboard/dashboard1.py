@@ -271,7 +271,7 @@ sns.barplot(
 )
 
 axes[0].set_title('Working Day Rentals by Season')
-axes[0].set_ylabel(None)
+axes[0].set_ylabel('Rent')
 axes[0].tick_params(axis='x', labelsize=16)
 axes[0].tick_params(axis='y', labelsize=16)
 axes[0].legend(loc='upper right')
@@ -289,7 +289,7 @@ sns.barplot(
 )
 
 axes[1].set_title('Holiday Rentals by Season')
-axes[1].set_ylabel(None)
+axes[1].set_ylabel('Rent')
 axes[1].tick_params(axis='x', labelsize=16)
 axes[1].tick_params(axis='y', labelsize=16)
 axes[1].legend(loc='upper right')
@@ -309,7 +309,8 @@ sns.barplot(
     palette=colors3,
     ax=axes[2]
 )
-
+axes[2].set_title('Weekday Rentals by Season')
+axes[2].set_ylabel('Rent')
 st.pyplot(fig)
 
 st.caption('Rifki Muhammad 2024')
