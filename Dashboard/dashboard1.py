@@ -284,6 +284,8 @@ sns.barplot(
     #ax=axes[0]
 )
 
+st.pyplot(fig)
+
 #for index, row in workingday_season_df.iterrows():
     #axes[0].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=8)
 
@@ -304,6 +306,8 @@ sns.barplot(
     palette=colors2
     #ax=axes[1]
 )
+
+st.pyplot(fig)
 
 #for index, row in holiday_season_df.iterrows():
     #axes[1].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=8)
