@@ -248,6 +248,9 @@ sns.displot(
     hue="season", 
 )
 
+for index, row in enumerate(workingday_rent_df['count']):
+    ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
+
 # Jumlah penyewaan berdasarkan weekday, working dan holiday
 st.markdown("---")
 st.header('5. Weekday, Workingday, and Holiday Rentals')
