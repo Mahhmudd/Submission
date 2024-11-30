@@ -335,4 +335,3 @@ for index, row in weekday_season_df.iterrows():
 axes[2].axhline(y=axes[2].get_ylim()[1] + 0.1, xmin=0,
 
 st.caption('Rifki Muhammad 2024')
-
