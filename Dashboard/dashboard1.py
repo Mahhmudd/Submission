@@ -277,15 +277,15 @@ f, ax = plt.subplots(figsize=(15, 22))
 sns.despine(f)
 sns.barplot(
     x='season',
-    y='count',
+    y='casual',
     hue='workingday',
     data=workingday_season_df,
     palette=colors1,
     ax=axes[0]
 )
 
-for index, row in workingday_season_df.iterrows():
-    axes[0].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=8, rotation=90)
+#for index, row in workingday_season_df.iterrows():
+    #axes[0].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=8)
 
 axes[0].set_title('Working Day Rentals by Season')
 axes[0].set_ylabel(None)
