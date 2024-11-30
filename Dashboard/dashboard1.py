@@ -253,22 +253,20 @@ colors3=["tab:red", "tab:pink", "tab:blue", "tab:green", "tab:purple", "tab:brow
 f, ax = plt.subplots(figsize=(8,12))
 sns.despine(f)
 sns.barplot(
-    x='workingday',
+    x='season',  # Replace 'weekday' with chosen categorical data
     y='count',
-    hue='season',
-    data=workingday_rent_df.merge(day_df[['workingday', 'season']], on='workingday'),
-    palette='magma',
-    ax=axes[0])
+    data=day_df.groupby(by='season')['count'].sum().reset_index(),  # Group by chosen data and sum count
+    palette=colors3,
+    ax=axes[2])
 
-for index, row in enumerate(workingday_rent_df['count']):
-    axes[0].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
-    
-axes[0].set_title('Jumlah Penyewa pada Working Day')
-axes[0].axhline(y=axes[0].get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
-axes[0].set_ylabel(None)
-axes[0].tick_params(axis='x', labelsize=16)
-axes[0].tick_params(axis='y', labelsize=16)
-axes[0].legend(title='Season', loc='upper left', bbox_to_anchor=(1, 1))
+for index, row in enumerate(day_df.groupby(by='season')['count'].sum()):
+    axes[2].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
+  
+axes[2].axhline(y=axes[2].get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
+axes[2].set_title('Jumlah Penyewa per Musim (Season)')  # Update title
+axes[2].set_xlabel('Season', fontsize=16)  # Update label
+axes[2].tick_params(axis='x', labelsize=16)
+axes[2].tick_params(axis='y', labelsize=16)
 
 # Berdasarkan holiday
 f, ax = plt.subplots(figsize=(8,12))
