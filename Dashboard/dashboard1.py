@@ -239,9 +239,9 @@ st.pyplot(fig)
 
 # Jumlah penyewaan berdasarkan weekday, workingday, and holiday rentals
 st.markdown("---")
-st.header('5. Weekday, Workingday, and Holiday Rentals by Season')
+st.header('5. Workingday, Holiday dan Weekday  berdasarkan Season')
 
-# Combining weekday and season data
+# Gabungkan weekday dan season data
 weekday_season_df = pd.pivot_table(
     day_df,
     values='count',
@@ -249,7 +249,7 @@ weekday_season_df = pd.pivot_table(
     aggfunc='sum'
 ).reset_index()
 
-# Combining workingday and season data
+# Gabungkan workingday dan season data
 workingday_season_df = pd.pivot_table(
     day_df[day_df['workingday'] != 'NA'],
     values='count',
@@ -257,7 +257,7 @@ workingday_season_df = pd.pivot_table(
     aggfunc='sum'
 ).reset_index()
 
-# Combining holiday and season data
+# Gabungkan holiday dan season data
 holiday_season_df = pd.pivot_table(
     day_df[day_df['holiday'] != 'NA'],
     values='count',
@@ -265,7 +265,7 @@ holiday_season_df = pd.pivot_table(
     aggfunc='sum'
 ).reset_index()
 
-# Plotting the data
+# Plotting data
 fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(15, 22))
 
 colors1 = ["tab:orange", "tab:red", "tab:green", "tab:purple"]
@@ -310,10 +310,15 @@ axes[1].legend(loc='upper left')
 
 # Weekday by Season
 f, ax = plt.subplots(figsize=(15, 22))
+
+# Define the desired weekday order
+weekday_order = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+
 sns.barplot(
     x='season',
     y='count',
     hue='weekday',
+    hue_order=weekday_order,
     data=weekday_season_df,
     palette=colors3,
     ax=axes[2]
