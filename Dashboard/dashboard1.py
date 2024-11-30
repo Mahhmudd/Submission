@@ -243,7 +243,7 @@ st.markdown("---")
 st.header('5. Weekday, Workingday, and Holiday Rentals by Season')
 
 # Plotting the data
-fig, axes = plt.subplots(figsize=(15, 22))
+fig, ax = plt.subplots(figsize=(15, 22))
 
 colors1 = ["tab:orange", "tab:red", "tab:green", "tab:purple"]
 colors2 = ["tab:orange", "tab:red"]
