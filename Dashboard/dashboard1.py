@@ -297,7 +297,7 @@ axes[0].set_title('Working Day Rentals by Season')
 axes[0].set_ylabel(None)
 axes[0].tick_params(axis='x', labelsize=16)
 axes[0].tick_params(axis='y', labelsize=16)
-axes[0].legend(loc='upper left')
+axes[0].legend(loc='upper right')
 
 # Holiday by Season
 f, ax = plt.subplots(figsize=(15, 22))
@@ -315,7 +315,7 @@ axes[1].set_title('Holiday Rentals by Season')
 axes[1].set_ylabel(None)
 axes[1].tick_params(axis='x', labelsize=16)
 axes[1].tick_params(axis='y', labelsize=16)
-axes[1].legend(loc='upper left')
+axes[1].legend(loc='upper right')
 
 # Weekday by Season
 f, ax = plt.subplots(figsize=(15, 22))
