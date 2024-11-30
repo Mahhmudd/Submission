@@ -266,7 +266,7 @@ holiday_season_df = pd.pivot_table(
 ).reset_index()
 
 # Plotting the data
-fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(15, 22))
+fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(18, 30))
 
 colors1 = ["tab:orange", "tab:red", "tab:green", "tab:purple"]
 colors2 = ["tab:orange", "tab:red"]
@@ -285,7 +285,7 @@ sns.barplot(
 )
 
 for index, row in workingday_season_df.iterrows():
-    axes[0].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=12)
+    axes[0].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=8)
 
 axes[0].set_title('Working Day Rentals by Season')
 axes[0].axhline(y=axes[0].get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
@@ -307,7 +307,7 @@ sns.barplot(
 )
 
 for index, row in holiday_season_df.iterrows():
-    axes[1].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=12)
+    axes[1].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=8)
 
 axes[1].set_title('Holiday Rentals by Season')
 axes[1].axhline(y=axes[1].get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
@@ -328,7 +328,7 @@ sns.barplot(
 )
 
 for index, row in weekday_season_df.iterrows():
-    axes[2].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=12)
+    axes[2].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=8)
 
 axes[2].axhline(y=axes[2].get_ylim()[1] + 0.1, xmin=0,)
 st.pyplot(fig)
