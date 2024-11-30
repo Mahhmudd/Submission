@@ -306,7 +306,8 @@ sns.barplot(
 )
 
 for index, row in holiday_season_df.iterrows():
-    axes[1].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=16)
+    axes[1].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=12)
+    axes[1].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=12)
 
 axes[1].set_title('Holiday Rentals by Season')
 axes[1].set_ylabel(None)
