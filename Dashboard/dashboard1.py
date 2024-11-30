@@ -251,7 +251,7 @@ colors3 = ["tab:red", "tab:pink", "tab:blue", "tab:green", "tab:purple", "tab:br
 
 # Working Day by Season
 f, ax = plt.subplots(figsize=(8, 12))
-sns.despine(f)
+
 sns.barplot(
     x='season',
     y='count',
