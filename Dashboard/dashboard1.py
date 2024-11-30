@@ -223,32 +223,9 @@ ax.legend()
 st.pyplot(fig)
 st.divider()
 
-# Penyewaan berdasarkan kondisi cuaca
-st.header('4. Weatherly Rentals')
-
-fig, ax = plt.subplots(figsize=(18, 15))
-
-colors=["tab:orange", "tab:red", "tab:green"]
-
-sns.barplot(
-    x=weather_rent_df.index,
-    y=weather_rent_df['count'],
-    palette=colors,
-    ax=ax
-)
-
-for index, row in enumerate(weather_rent_df['count']):
-    ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
-
-ax.set_xlabel('Weather', fontsize=20)
-ax.set_ylabel('Rent', fontsize=20)
-ax.tick_params(axis='x', labelsize=16)
-ax.tick_params(axis='y', labelsize=16)
-st.pyplot(fig)
-
 # Jumlah penyewaan berdasarkan workingday, holiday dan weekday 
 st.markdown("---")
-st.header('5. Workingday, Holiday dan Weekday berdasarkan Season')
+st.header('4. Workingday, Holiday dan Weekday berdasarkan Season')
 
 # Gabungkan weekday dan season data
 weekday_season_df = pd.pivot_table(
