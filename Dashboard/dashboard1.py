@@ -255,7 +255,8 @@ sns.despine(f)
 sns.barplot(
     x='workingday',
     y='count',
-    data=workingday_rent_df,
+    hue='season',
+    data=workingday_rent_df.merge(day_df[['workingday', 'season']], on='workingday'),
     palette='magma',
     ax=axes[0])
 
@@ -267,6 +268,7 @@ axes[0].axhline(y=axes[0].get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', li
 axes[0].set_ylabel(None)
 axes[0].tick_params(axis='x', labelsize=16)
 axes[0].tick_params(axis='y', labelsize=16)
+axes[0].legend(title='Season', loc='upper left', bbox_to_anchor=(1, 1))
 
 # Berdasarkan holiday
 f, ax = plt.subplots(figsize=(8,12))
