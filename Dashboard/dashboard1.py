@@ -182,7 +182,7 @@ st.divider()
 #  jumlah penyewaan berdasarkan musiman
 st.header('3. Seasonly Rentals')
 
-fig, ax = plt.subplots(figsize=(14, 8))
+fig, ax = plt.subplots(figsize=(24, 8))
 
 sns.barplot(
     x='season',
@@ -217,7 +217,7 @@ st.divider()
 # Penyewaan berdasarkan kondisi cuaca
 st.header('4. Weatherly Rentals')
 
-fig, ax = plt.subplots(figsize=(14, 8))
+fig, ax = plt.subplots(figsize=(24, 8))
 
 colors=["tab:orange", "tab:red", "tab:green"]
 
@@ -266,7 +266,7 @@ holiday_season_df = pd.pivot_table(
 ).reset_index()
 
 # Plotting the data
-fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(18, 30))
+fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(24, 8))
 
 colors1 = ["tab:orange", "tab:red", "tab:green", "tab:purple"]
 colors2 = ["tab:orange", "tab:red"]
