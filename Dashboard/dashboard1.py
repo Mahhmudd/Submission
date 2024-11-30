@@ -253,7 +253,7 @@ colors3=["tab:red", "tab:pink", "tab:blue", "tab:green", "tab:purple", "tab:brow
 f, ax = plt.subplots(figsize=(8,12))
 sns.despine(f)
 sns.barplot(
-    x=workingday_rent_df.index,
+    x='workingday',
     y='year',
     data=workingday_rent_df,
     palette='magma',
