@@ -237,9 +237,9 @@ ax.tick_params(axis='x', labelsize=16)
 ax.tick_params(axis='y', labelsize=16)
 st.pyplot(fig)
 
-# Jumlah penyewaan berdasarkan weekday, workingday, and holiday rentals
+# Jumlah penyewaan berdasarkan workingday, holiday dan weekday 
 st.markdown("---")
-st.header('5. Workingday, Holiday dan Weekday  berdasarkan Season')
+st.header('5. Workingday, Holiday dan Weekday berdasarkan Season')
 
 # Gabungkan weekday dan season data
 weekday_season_df = pd.pivot_table(
