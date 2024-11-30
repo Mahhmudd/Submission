@@ -243,9 +243,9 @@ st.header('Workingday')
 Fig, ax = plt.subplots(figsize=(8,12))
 
 sns.displot(
-    x="workingday", 
+    x="workingday",
+    y="count" 
     hue="season", 
-    stat="count"
 )
 
 # Jumlah penyewaan berdasarkan weekday, working dan holiday
