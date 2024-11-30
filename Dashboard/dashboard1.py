@@ -191,7 +191,7 @@ st.divider()
 #  jumlah penyewaan berdasarkan musiman
 st.header('3. Seasonly Rentals')
 
-fig, ax = plt.subplots(figsize=(22, 15))
+fig, ax = plt.subplots(figsize=(15, 22))
 
 sns.barplot(
     x='season',
