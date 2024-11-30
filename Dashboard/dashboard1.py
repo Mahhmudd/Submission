@@ -256,16 +256,16 @@ sns.barplot(
     y='count',
     data=workingday_rent_df,
     palette=colors2,
-    ax=axes)
+)
 
 for index, row in enumerate(workingday_rent_df['count']):
-    axes.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
+    ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
-axes.set_title('Jumlah Penyewa pada Working Day')
-axes.axhline(y=axes.get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
-axes.set_ylabel(None)
-axes.tick_params(axis='x', labelsize=16)
-axes.tick_params(axis='y', labelsize=16)
+ax.set_title('Jumlah Penyewa pada Working Day')
+ax.axhline(y=axes.get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
+ax.set_ylabel(None)
+ax.tick_params(axis='x', labelsize=16)
+ax.tick_params(axis='y', labelsize=16)
 
 # Berdasarkan holiday
 f, ax = plt.subplots(figsize=(8,12))
@@ -276,16 +276,16 @@ sns.barplot(
     y='count',
     data=holiday_rent_df,
     palette=colors2,
-    ax=axes)
+)
 
 for index, row in enumerate(holiday_rent_df['count']):
-    axes.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
+    ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
-axes.set_title('Jumlah Penyewa pada Holiday')
-axes.axhline(y=axes.get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
-axes.set_ylabel(None)
-axes.tick_params(axis='x', labelsize=16)
-axes.tick_params(axis='y', labelsize=16)
+ax.set_title('Jumlah Penyewa pada Holiday')
+ax.axhline(y=axes.get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
+ax.set_ylabel(None)
+ax.tick_params(axis='x', labelsize=16)
+ax.tick_params(axis='y', labelsize=16)
 
 # Berdasarkan weekday
 f, ax = plt.subplots(figsize=(8,12))
@@ -295,18 +295,18 @@ sns.barplot(
     y='count',
     data=weekday_rent_df,
     palette=colors3,
-    ax=axes)
+)
 
 
 for index, row in enumerate(weekday_rent_df['count']):
-    axes.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
+    ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
 
-axes.axhline(y=axes.get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
-axes.set_title('Jumlah Penyewa pada Weekday')
-axes.set_xlabel('weekday', fontsize=16)
-axes.set_ylabel('Rent', fontsize=20)
-axes.tick_params(axis='x', labelsize=16)
-axes.tick_params(axis='y', labelsize=16)
+ax.axhline(y=axes.get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
+ax.set_title('Jumlah Penyewa pada Weekday')
+ax.set_xlabel('weekday', fontsize=16)
+ax.set_ylabel('Rent', fontsize=20)
+ax.tick_params(axis='x', labelsize=16)
+ax.tick_params(axis='y', labelsize=16)
 
 plt.tight_layout()
 st.pyplot(fig)
