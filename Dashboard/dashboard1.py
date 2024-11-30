@@ -266,7 +266,7 @@ holiday_season_df = pd.pivot_table(
 ).reset_index()
 
 # Plotting the data
-#fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(15, 22))
+fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(15, 22))
 
 colors1 = ["tab:orange", "tab:red", "tab:green", "tab:purple"]
 colors2 = ["tab:orange", "tab:red"]
@@ -280,20 +280,18 @@ sns.barplot(
     y='count',
     hue='workingday',
     data=workingday_season_df,
-    palette=colors1
-    #ax=axes[0]
+    palette=colors1,
+    ax=axes[0]
 )
-
-st.pyplot(fig)
 
 #for index, row in workingday_season_df.iterrows():
     #axes[0].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=8)
 
-'''axes[0].set_title('Working Day Rentals by Season')
+axes[0].set_title('Working Day Rentals by Season')
 axes[0].set_ylabel(None)
 axes[0].tick_params(axis='x', labelsize=16)
 axes[0].tick_params(axis='y', labelsize=16)
-axes[0].legend(loc='upper left')'''
+axes[0].legend(loc='upper left')
 
 # Holiday by Season
 f, ax = plt.subplots(figsize=(15, 22))
@@ -303,20 +301,18 @@ sns.barplot(
     y='count',
     hue='holiday',
     data=holiday_season_df,
-    palette=colors2
-    #ax=axes[1]
+    palette=colors2,
+    ax=axes[1]
 )
-
-st.pyplot(fig)
 
 #for index, row in holiday_season_df.iterrows():
     #axes[1].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=8)
 
-'''axes[1].set_title('Holiday Rentals by Season')
+axes[1].set_title('Holiday Rentals by Season')
 axes[1].set_ylabel(None)
 axes[1].tick_params(axis='x', labelsize=16)
 axes[1].tick_params(axis='y', labelsize=16)
-axes[1].legend(loc='upper left')'''
+axes[1].legend(loc='upper left')
 
 # Weekday by Season
 f, ax = plt.subplots(figsize=(15, 22))
@@ -325,14 +321,13 @@ sns.barplot(
     y='count',
     hue='weekday',
     data=weekday_season_df,
-    palette=colors3
-    #ax=axes[2]
+    palette=colors3,
+    ax=axes[2]
 )
 
 #for index, row in weekday_season_df.iterrows():
     #axes[2].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=8)
 
 st.pyplot(fig)
-
 
 st.caption('Rifki Muhammad 2024')
