@@ -238,75 +238,101 @@ ax.tick_params(axis='x', labelsize=16)
 ax.tick_params(axis='y', labelsize=16)
 st.pyplot(fig)
 
-# Jumlah penyewaan berdasarkan weekday, working dan holiday
+# Jumlah penyewaan berdasarkan weekday, workingday, and holiday rentals
+
 st.markdown("---")
-st.header('5. Weekday, Workingday, and Holiday Rentals')
+st.header('5. Weekday, Workingday, and Holiday Rentals by Season')
 
-colors1=["tab:orange", "tab:red"]
-colors2=["tab:orange", "tab:red"]
-colors3=["tab:red", "tab:pink", "tab:blue", "tab:green", "tab:purple", "tab:brown", "tab:orange"]
+# Combining weekday and season data
+weekday_season_df = pd.pivot_table(
+    day_df,
+    values='count',
+    index=['weekday', 'season'],
+    aggfunc='sum'
+).reset_index()
 
-# Berdasarkan workingday
+# Combining workingday and season data
+workingday_season_df = pd.pivot_table(
+    day_df[day_df['workingday'] != 'NA'],
+    values='count',
+    index=['workingday', 'season'],
+    aggfunc='sum'
+).reset_index()
 
-f, ax = plt.subplots(figsize=(8,12))
+# Combining holiday and season data
+holiday_season_df = pd.pivot_table(
+    day_df[day_df['holiday'] != 'NA'],
+    values='count',
+    index=['holiday', 'season'],
+    aggfunc='sum'
+).reset_index()
 
+# Plotting the data
+fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(15, 22))
+
+colors1 = ["tab:orange", "tab:red", "tab:green", "tab:purple"]
+colors2 = ["tab:orange", "tab:red"]
+colors3 = ["tab:red", "tab:pink", "tab:blue", "tab:green", "tab:purple", "tab:brown", "tab:orange"]
+
+# Working Day by Season
+f, ax = plt.subplots(figsize=(8, 12))
+sns.despine(f)
 sns.barplot(
-    x='workingday',
+    x='season',
     y='count',
-    data=workingday_rent_df,
-    palette=colors2,
+    hue='workingday',
+    data=workingday_season_df,
+    palette=colors1,
+    ax=axes[0]
 )
 
-for index, row in enumerate(workingday_rent_df['count']):
-    ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
+for index, row in workingday_season_df.iterrows():
+    axes[0].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=12)
 
-ax.set_title('Jumlah Penyewa pada Working Day')
-ax.axhline(y=ax.get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
-ax.set_ylabel(None)
-ax.tick_params(axis='x', labelsize=16)
-ax.tick_params(axis='y', labelsize=16)
+axes[0].set_title('Working Day Rentals by Season')
+axes[0].axhline(y=axes[0].get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
+axes[0].set_ylabel(None)
+axes[0].tick_params(axis='x', labelsize=16)
+axes[0].tick_params(axis='y', labelsize=16)
+axes[0].legend(loc='upper left')
 
-# Berdasarkan holiday
-f, ax = plt.subplots(figsize=(8,12))
-
+# Holiday by Season
+f, ax = plt.subplots(figsize=(8, 12))
+sns.despine(f)
 sns.barplot(
-    x='holiday',
+    x='season',
     y='count',
-    data=holiday_rent_df,
+    hue='holiday',
+    data=holiday_season_df,
     palette=colors2,
+    ax=axes[1]
 )
 
-for index, row in enumerate(holiday_rent_df['count']):
-    ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
+for index, row in holiday_season_df.iterrows():
+    axes[1].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=12)
 
-ax.set_title('Jumlah Penyewa pada Holiday')
-ax.axhline(y=ax.get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
-ax.set_ylabel(None)
-ax.tick_params(axis='x', labelsize=16)
-ax.tick_params(axis='y', labelsize=16)
+axes[1].set_title('Holiday Rentals by Season')
+axes[1].axhline(y=axes[1].get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
+axes[1].set_ylabel(None)
+axes[1].tick_params(axis='x', labelsize=16)
+axes[1].tick_params(axis='y', labelsize=16)
+axes[1].legend(loc='upper left')
 
-# Berdasarkan weekday
-f, ax = plt.subplots(figsize=(8,12))
-
+# Weekday by Season
+f, ax = plt.subplots(figsize=(8, 12))
 sns.barplot(
-    x='weekday',
+    x='season',
     y='count',
-    data=weekday_rent_df,
+    hue='weekday',
+    data=weekday_season_df,
     palette=colors3,
+    ax=axes[2]
 )
 
-for index, row in enumerate(weekday_rent_df['count']):
-    ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
+for index, row in weekday_season_df.iterrows():
+    axes[2].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=12)
 
-ax.axhline(y=ax.get_ylim()[1] + 0.1, xmin=0, xmax=1, color='black', linewidth=2)
-ax.set_title('Jumlah Penyewa pada Weekday')
-ax.set_xlabel('weekday', fontsize=16)
-ax.set_ylabel('Rent', fontsize=20)
-ax.tick_params(axis='x', labelsize=16)
-ax.tick_params(axis='y', labelsize=16)
-
-plt.tight_layout()
-st.pyplot(fig)
+axes[2].axhline(y=axes[2].get_ylim()[1] + 0.1, xmin=0,
 
 st.caption('Rifki Muhammad 2024')
 
