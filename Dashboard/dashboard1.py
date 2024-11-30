@@ -242,7 +242,11 @@ st.pyplot(fig)
 st.header('Workingday')
 Fig, ax = plt.subplots(figsize=(8,12))
 
-sns.displot(penguins, x="workingday", hue="season", stat="count")
+sns.displot(
+    x="workingday", 
+    hue="season", 
+    stat="count"
+)
 
 # Jumlah penyewaan berdasarkan weekday, working dan holiday
 st.markdown("---")
