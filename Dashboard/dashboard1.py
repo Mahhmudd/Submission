@@ -284,9 +284,6 @@ sns.barplot(
     ax=axes[0]
 )
 
-#for index, row in workingday_season_df.iterrows():
-    #axes[0].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=8)
-
 axes[0].set_title('Working Day Rentals by Season')
 axes[0].set_ylabel(None)
 axes[0].tick_params(axis='x', labelsize=16)
@@ -305,10 +302,6 @@ sns.barplot(
     ax=axes[1]
 )
 
-for index, row in enumerate (holiday_season_df['count']):
-    axes[1].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=12)
-
-
 axes[1].set_title('Holiday Rentals by Season')
 axes[1].set_ylabel(None)
 axes[1].tick_params(axis='x', labelsize=16)
@@ -325,9 +318,6 @@ sns.barplot(
     palette=colors3,
     ax=axes[2]
 )
-
-#for index, row in weekday_season_df.iterrows():
-    #axes[2].text(index, row['count'] + 1, str(row['count']), ha='center', va='bottom', fontsize=8)
 
 st.pyplot(fig)
 
