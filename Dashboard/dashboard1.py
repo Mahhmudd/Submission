@@ -238,38 +238,21 @@ ax.tick_params(axis='x', labelsize=16)
 ax.tick_params(axis='y', labelsize=16)
 st.pyplot(fig)
 
+# Berdasarkan workingday
+st.header('Workingday')
+Fig, ax = plt.subplots(figsize=(8,12))
+
+sns.displot(penguins, x="workingday", hue="season", stat="count")
+
 # Jumlah penyewaan berdasarkan weekday, working dan holiday
 st.markdown("---")
 st.header('5. Weekday, Workingday, and Holiday Rentals')
-
-
-fig, axes = plt.subplots(nrows=2, ncols=1, figsize=(15,22))
-
-colors1=["tab:orange", "tab:red"]
-colors2=["tab:orange", "tab:red"]
-colors3=["tab:red", "tab:pink", "tab:blue", "tab:green", "tab:purple", "tab:brown", "tab:orange"]
-
-# Jumlah penyewaan berdasarkan weekday, working dan holiday
-
-st.markdown("---")
-
-st.header('5. Weekday, Workingday, and Holiday Rentals')
-
-
-
-
 
 fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(15,22))
 
-
-
 colors1=["tab:orange", "tab:red"]
-
 colors2=["tab:orange", "tab:red"]
-
 colors3=["tab:red", "tab:pink", "tab:blue", "tab:green", "tab:purple", "tab:brown", "tab:orange"]
-
-
 
 # Berdasarkan workingday
 
@@ -282,8 +265,6 @@ sns.barplot(
     data=workingday_rent_df,
     palette='magma',
     ax=axes[0])
-
-
 
 for index, row in enumerate(workingday_rent_df['count']):
     axes[0].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
