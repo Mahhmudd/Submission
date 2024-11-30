@@ -43,6 +43,15 @@ day_df['weather_cond'] = day_df['weather_cond'].map({
     3: 'Light Snow/Rain',
     4: 'Severe Weather'
 })
+day_df['holiday'] = day_df['holiday'].map({
+    0: 'Hari Kerja', 1: 'Hari Libur'
+})
+day_df['workingday'] = day_df['workingday'].map({
+    0: 'Hari Libur', 1: 'Hari Kerja'
+})
+day_df['year'] = day_df['year'].map({
+    0: '2011', 1: '2012'
+})
 
 def create_daily_rent_df(df):
     daily_rent_df = df.groupby(by='dateday').agg({
